@@ -1,0 +1,1564 @@
+* HMG-IDE UNICODE Form Designer Generated Code
+* (c) Roberto Lopez - http://sites.google.com/site/hmgweb
+
+DEFINE WINDOW TEMPLATE AT 142 , 296 WIDTH 1030 HEIGHT 570 VIRTUAL WIDTH Nil VIRTUAL HEIGHT Nil TITLE "Cadastro de Clientes" ICON NIL CHILD NOMAXIMIZE NOSIZE CURSOR NIL ON INIT clients_form_on_init() ON RELEASE clients_form_on_release()
+
+    DEFINE STATUSBAR FONT "Open Sans" SIZE 9
+        STATUSITEM "Status" TOOLTIP "Mostra a última operação executada até o momento" FLAT
+    END STATUSBAR
+
+    DEFINE TAB tab_clients AT 10 , 10 WIDTH 995 HEIGHT 445 VALUE 1 FONT "Open Sans" SIZE 9 TOOLTIP "" ON CHANGE clients_tab_clients_on_change()
+
+        PAGE "Idêntificação"
+
+            DEFINE TEXTBOX text_id
+                ROW    70
+                COL    20
+                WIDTH  150
+                HEIGHT 24
+                FONTNAME "Open Sans"
+                FONTSIZE 9
+                TOOLTIP ""
+                ONCHANGE Nil
+                ONGOTFOCUS Nil
+                ONLOSTFOCUS Nil
+                FONTBOLD .F.
+                FONTITALIC .F.
+                FONTUNDERLINE .F.
+                FONTSTRIKEOUT .F.
+                ONENTER Nil
+                HELPID Nil
+                TABSTOP .T.
+                VISIBLE .T.
+                READONLY .T.
+                RIGHTALIGN .T.
+                DISABLEDBACKCOLOR Nil
+                DISABLEDFONTCOLOR Nil
+                CASECONVERT NONE
+                BACKCOLOR NIL
+                FONTCOLOR NIL
+                INPUTMASK "99,999,999,999"
+                FORMAT "E"
+                NUMERIC .T.
+                VALUE Nil
+            END TEXTBOX
+
+            DEFINE TEXTBOX text_razao_social
+                ROW    70
+                COL    190
+                WIDTH  460
+                HEIGHT 24
+                FONTNAME "Open Sans"
+                FONTSIZE 9
+                TOOLTIP ""
+                ONCHANGE Nil
+                ONGOTFOCUS textbox_on_goto_focus("clients", "text_razao_social")
+                ONLOSTFOCUS textbox_on_lost_focus("clients", "text_razao_social")
+                FONTBOLD .F.
+                FONTITALIC .F.
+                FONTUNDERLINE .F.
+                FONTSTRIKEOUT .F.
+                ONENTER Nil
+                HELPID Nil
+                TABSTOP .T.
+                VISIBLE .T.
+                READONLY .F.
+                RIGHTALIGN .F.
+                DISABLEDBACKCOLOR Nil
+                DISABLEDFONTCOLOR Nil
+                CASECONVERT NONE
+                MAXLENGTH 60
+                BACKCOLOR NIL
+                FONTCOLOR NIL
+                INPUTMASK Nil
+                FORMAT Nil
+                VALUE ""
+            END TEXTBOX
+
+            DEFINE TEXTBOX text_nome_fantasia
+                ROW    70
+                COL    670
+                WIDTH  300
+                HEIGHT 24
+                FONTNAME "Open Sans"
+                FONTSIZE 9
+                TOOLTIP ""
+                ONCHANGE Nil
+                ONGOTFOCUS textbox_on_goto_focus("clients", "text_nome_fantasia")
+                ONLOSTFOCUS textbox_on_lost_focus("clients", "text_nome_fantasia")
+                FONTBOLD .F.
+                FONTITALIC .F.
+                FONTUNDERLINE .F.
+                FONTSTRIKEOUT .F.
+                ONENTER Nil
+                HELPID Nil
+                TABSTOP .T.
+                VISIBLE .T.
+                READONLY .F.
+                RIGHTALIGN .F.
+                DISABLEDBACKCOLOR Nil
+                DISABLEDFONTCOLOR Nil
+                CASECONVERT NONE
+                MAXLENGTH 40
+                BACKCOLOR NIL
+                FONTCOLOR NIL
+                INPUTMASK Nil
+                FORMAT Nil
+                VALUE ""
+            END TEXTBOX
+
+            DEFINE TEXTBOX text_doc1
+                ROW    130
+                COL    190
+                WIDTH  160
+                HEIGHT 24
+                FONTNAME "Open Sans"
+                FONTSIZE 9
+                TOOLTIP ""
+                ONCHANGE Nil
+                ONGOTFOCUS textbox_on_goto_focus("clients", "text_doc1")
+                ONLOSTFOCUS textbox_on_lost_focus("clients", "text_doc1",iif(clients.radio_tipo_pessoa.VALUE==1, "as cnpj", "as cpf"))
+                FONTBOLD .F.
+                FONTITALIC .F.
+                FONTUNDERLINE .F.
+                FONTSTRIKEOUT .F.
+                ONENTER Nil
+                HELPID Nil
+                TABSTOP .T.
+                VISIBLE .T.
+                READONLY .F.
+                RIGHTALIGN .T.
+                DISABLEDBACKCOLOR Nil
+                DISABLEDFONTCOLOR Nil
+                CASECONVERT NONE
+                BACKCOLOR NIL
+                FONTCOLOR NIL
+                INPUTMASK Nil
+                FORMAT Nil
+                VALUE ""
+            END TEXTBOX
+
+            DEFINE TEXTBOX text_doc2
+                ROW    130
+                COL    370
+                WIDTH  160
+                HEIGHT 24
+                FONTNAME "Open Sans"
+                FONTSIZE 9
+                TOOLTIP ""
+                ONCHANGE Nil
+                ONGOTFOCUS textbox_on_goto_focus("clients", "text_doc2")
+                ONLOSTFOCUS textbox_on_lost_focus("clients", "text_doc2")
+                FONTBOLD .F.
+                FONTITALIC .F.
+                FONTUNDERLINE .F.
+                FONTSTRIKEOUT .F.
+                ONENTER Nil
+                HELPID Nil
+                TABSTOP .T.
+                VISIBLE .T.
+                READONLY .F.
+                RIGHTALIGN .T.
+                DISABLEDBACKCOLOR Nil
+                DISABLEDFONTCOLOR Nil
+                CASECONVERT NONE
+                BACKCOLOR NIL
+                FONTCOLOR NIL
+                INPUTMASK Nil
+                FORMAT Nil
+                VALUE ""
+            END TEXTBOX
+
+            DEFINE TEXTBOX text_fone1
+                ROW    130
+                COL    550
+                WIDTH  150
+                HEIGHT 24
+                FONTNAME "Open Sans"
+                FONTSIZE 9
+                TOOLTIP ""
+                ONCHANGE Nil
+                ONGOTFOCUS textbox_on_goto_focus("clients", "text_fone1")
+                ONLOSTFOCUS textbox_on_lost_focus("clients", "text_fone1","as phone")
+                FONTBOLD .F.
+                FONTITALIC .F.
+                FONTUNDERLINE .F.
+                FONTSTRIKEOUT .F.
+                ONENTER Nil
+                HELPID Nil
+                TABSTOP .T.
+                VISIBLE .T.
+                READONLY .F.
+                RIGHTALIGN .F.
+                DISABLEDBACKCOLOR Nil
+                DISABLEDFONTCOLOR Nil
+                CASECONVERT NONE
+                BACKCOLOR NIL
+                FONTCOLOR NIL
+                INPUTMASK Nil
+                FORMAT Nil
+                VALUE ""
+            END TEXTBOX
+
+            DEFINE TEXTBOX text_fone2
+                ROW    130
+                COL    720
+                WIDTH  150
+                HEIGHT 24
+                FONTNAME "Open Sans"
+                FONTSIZE 9
+                TOOLTIP ""
+                ONCHANGE Nil
+                ONGOTFOCUS textbox_on_goto_focus("clients", "text_fone2")
+                ONLOSTFOCUS textbox_on_lost_focus("clients", "text_fone2","as phone")
+                FONTBOLD .F.
+                FONTITALIC .F.
+                FONTUNDERLINE .F.
+                FONTSTRIKEOUT .F.
+                ONENTER Nil
+                HELPID Nil
+                TABSTOP .T.
+                VISIBLE .T.
+                READONLY .F.
+                RIGHTALIGN .F.
+                DISABLEDBACKCOLOR Nil
+                DISABLEDFONTCOLOR Nil
+                CASECONVERT NONE
+                BACKCOLOR NIL
+                FONTCOLOR NIL
+                INPUTMASK Nil
+                FORMAT Nil
+                VALUE ""
+            END TEXTBOX
+
+            DEFINE CHECKBUTTON checkbutton_ativo
+                ROW    125
+                COL    930
+                WIDTH  40
+                HEIGHT 28
+                CAPTION ""
+                VALUE .T.
+                FONTNAME "Open Sans"
+                FONTSIZE 9
+                TOOLTIP ""
+                ONCHANGE checkbutton_ativo_on_change( "clients", "checkbutton_ativo" )
+                ONGOTFOCUS Nil
+                ONLOSTFOCUS Nil
+                FONTBOLD .F.
+                FONTITALIC .F.
+                FONTUNDERLINE .F.
+                FONTSTRIKEOUT .F.
+                HELPID Nil
+                TABSTOP .T.
+                VISIBLE .T.
+                PICTURE "bttTurnOnBlue"
+            END CHECKBUTTON
+
+            DEFINE TEXTBOX text_cep
+                ROW    225
+                COL    20
+                WIDTH  120
+                HEIGHT 24
+                FONTNAME "Open Sans"
+                FONTSIZE 9
+                TOOLTIP ""
+                ONCHANGE Nil
+                ONGOTFOCUS textbox_on_goto_focus("clients", "text_cep")
+                ONLOSTFOCUS textbox_on_lost_focus("clients", "text_cep","as cep")
+                FONTBOLD .F.
+                FONTITALIC .F.
+                FONTUNDERLINE .F.
+                FONTSTRIKEOUT .F.
+                ONENTER Nil
+                HELPID Nil
+                TABSTOP .T.
+                VISIBLE .T.
+                READONLY .F.
+                RIGHTALIGN .T.
+                DISABLEDBACKCOLOR Nil
+                DISABLEDFONTCOLOR Nil
+                CASECONVERT NONE
+                BACKCOLOR NIL
+                FONTCOLOR NIL
+                INPUTMASK Nil
+                FORMAT Nil
+                VALUE ""
+            END TEXTBOX
+
+            DEFINE BUTTON button_auto_cep
+                ROW    222
+                COL    148
+                WIDTH  30
+                HEIGHT 30
+                ACTION register_form_button_cep_action()
+                CAPTION Nil
+                FONTNAME "Open Sans"
+                FONTSIZE 9
+                TOOLTIP "Preenchimento automatico do endereço pelo CEP"
+                FONTBOLD .F.
+                FONTITALIC .F.
+                FONTUNDERLINE .F.
+                FONTSTRIKEOUT .F.
+                ONGOTFOCUS Nil
+                ONLOSTFOCUS Nil
+                HELPID Nil
+                FLAT .F.
+                TABSTOP .T.
+                VISIBLE .T.
+                TRANSPARENT .F.
+                MULTILINE .F.
+                PICTURE "btLocalizacao"
+                PICTALIGNMENT TOP
+            END BUTTON
+
+            DEFINE TEXTBOX text_logradouro
+                ROW    225
+                COL    195
+                WIDTH  420
+                HEIGHT 24
+                FONTNAME "Open Sans"
+                FONTSIZE 9
+                TOOLTIP ""
+                ONCHANGE Nil
+                ONGOTFOCUS textbox_on_goto_focus("clients", "text_logradouro")
+                ONLOSTFOCUS textbox_on_lost_focus("clients", "text_logradouro")
+                FONTBOLD .F.
+                FONTITALIC .F.
+                FONTUNDERLINE .F.
+                FONTSTRIKEOUT .F.
+                ONENTER Nil
+                HELPID Nil
+                TABSTOP .T.
+                VISIBLE .T.
+                READONLY .F.
+                RIGHTALIGN .F.
+                DISABLEDBACKCOLOR Nil
+                DISABLEDFONTCOLOR Nil
+                CASECONVERT NONE
+                MAXLENGTH 60
+                BACKCOLOR NIL
+                FONTCOLOR NIL
+                INPUTMASK Nil
+                FORMAT Nil
+                VALUE ""
+            END TEXTBOX
+
+            DEFINE TEXTBOX text_numero
+                ROW    225
+                COL    630
+                WIDTH  120
+                HEIGHT 24
+                FONTNAME "Open Sans"
+                FONTSIZE 9
+                TOOLTIP ""
+                ONCHANGE Nil
+                ONGOTFOCUS textbox_on_goto_focus("clients", "text_numero")
+                ONLOSTFOCUS textbox_on_lost_focus("clients", "text_numero")
+                FONTBOLD .F.
+                FONTITALIC .F.
+                FONTUNDERLINE .F.
+                FONTSTRIKEOUT .F.
+                ONENTER Nil
+                HELPID Nil
+                TABSTOP .T.
+                VISIBLE .T.
+                READONLY .F.
+                RIGHTALIGN .F.
+                DISABLEDBACKCOLOR Nil
+                DISABLEDFONTCOLOR Nil
+                CASECONVERT NONE
+                MAXLENGTH 20
+                BACKCOLOR NIL
+                FONTCOLOR NIL
+                INPUTMASK Nil
+                FORMAT Nil
+                VALUE ""
+            END TEXTBOX
+
+            DEFINE TEXTBOX text_complemento
+                ROW    225
+                COL    770
+                WIDTH  200
+                HEIGHT 24
+                FONTNAME "Open Sans"
+                FONTSIZE 9
+                TOOLTIP ""
+                ONCHANGE Nil
+                ONGOTFOCUS textbox_on_goto_focus("clients", "text_complemento")
+                ONLOSTFOCUS textbox_on_lost_focus("clients", "text_complemento")
+                FONTBOLD .F.
+                FONTITALIC .F.
+                FONTUNDERLINE .F.
+                FONTSTRIKEOUT .F.
+                ONENTER Nil
+                HELPID Nil
+                TABSTOP .T.
+                VISIBLE .T.
+                READONLY .F.
+                RIGHTALIGN .F.
+                DISABLEDBACKCOLOR Nil
+                DISABLEDFONTCOLOR Nil
+                CASECONVERT NONE
+                MAXLENGTH 60
+                BACKCOLOR NIL
+                FONTCOLOR NIL
+                INPUTMASK Nil
+                FORMAT Nil
+                VALUE ""
+            END TEXTBOX
+
+            DEFINE TEXTBOX text_bairro
+                ROW    285
+                COL    20
+                WIDTH  300
+                HEIGHT 24
+                FONTNAME "Open Sans"
+                FONTSIZE 9
+                TOOLTIP ""
+                ONCHANGE Nil
+                ONGOTFOCUS textbox_on_goto_focus("clients", "text_bairro")
+                ONLOSTFOCUS textbox_on_lost_focus("clients", "text_bairro")
+                FONTBOLD .F.
+                FONTITALIC .F.
+                FONTUNDERLINE .F.
+                FONTSTRIKEOUT .F.
+                ONENTER Nil
+                HELPID Nil
+                TABSTOP .T.
+                VISIBLE .T.
+                READONLY .F.
+                RIGHTALIGN .F.
+                DISABLEDBACKCOLOR Nil
+                DISABLEDFONTCOLOR Nil
+                CASECONVERT NONE
+                MAXLENGTH 60
+                BACKCOLOR NIL
+                FONTCOLOR NIL
+                INPUTMASK Nil
+                FORMAT Nil
+                VALUE ""
+            END TEXTBOX
+
+            DEFINE TEXTBOX text_municipio
+                ROW    285
+                COL    360
+                WIDTH  460
+                HEIGHT 24
+                FONTNAME "Open Sans"
+                FONTSIZE 9
+                TOOLTIP ""
+                ONCHANGE Nil
+                ONGOTFOCUS textbox_on_goto_focus("clients", "text_municipio")
+                ONLOSTFOCUS textbox_on_lost_focus("clients", "text_municipio")
+                FONTBOLD .F.
+                FONTITALIC .F.
+                FONTUNDERLINE .F.
+                FONTSTRIKEOUT .F.
+                ONENTER Nil
+                HELPID Nil
+                TABSTOP .T.
+                VISIBLE .T.
+                READONLY .T.
+                RIGHTALIGN .F.
+                DISABLEDBACKCOLOR Nil
+                DISABLEDFONTCOLOR Nil
+                CASECONVERT NONE
+                BACKCOLOR NIL
+                FONTCOLOR NIL
+                INPUTMASK Nil
+                FORMAT Nil
+                VALUE ""
+            END TEXTBOX
+
+            DEFINE COMBOBOX combobox_uf
+                ROW    285
+                COL    870
+                WIDTH  100
+                HEIGHT 210
+                ITEMS {'AC','AL','AM','AP','BA','CE','DF','ES','EX','GO','MA','MG','MS','MT','PA','PB','PE','PI','PR','RJ','RN','RO','RR','RS','SC','SE','SP','TO'}
+                VALUE 0
+                FONTNAME "Open Sans"
+                FONTSIZE 9
+                TOOLTIP ""
+                ONCHANGE Nil
+                ONGOTFOCUS Nil
+                ONLOSTFOCUS Nil
+                FONTBOLD .F.
+                FONTITALIC .F.
+                FONTUNDERLINE .F.
+                FONTSTRIKEOUT .F.
+                HELPID Nil
+                TABSTOP .T.
+                VISIBLE .T.
+                SORT .F.
+                ONENTER Nil
+                ONDISPLAYCHANGE Nil
+                DISPLAYEDIT .F.
+                IMAGE Nil
+                DROPPEDWIDTH Nil
+                ONDROPDOWN Nil
+                ONCLOSEUP Nil
+            END COMBOBOX
+
+            DEFINE FRAME frame_1
+                ROW    30
+                COL    10
+                WIDTH  975
+                HEIGHT 145
+                FONTNAME "Open Sans"
+                FONTSIZE 9
+                FONTBOLD .F.
+                FONTITALIC .F.
+                FONTUNDERLINE .F.
+                FONTSTRIKEOUT .F.
+                CAPTION "Identificação"
+                BACKCOLOR NIL
+                FONTCOLOR NIL
+                OPAQUE .T.
+            END FRAME
+
+            DEFINE LABEL label_1
+                ROW    50
+                COL    20
+                WIDTH  27
+                HEIGHT 15
+                VALUE "ID#"
+                FONTNAME "Open Sans"
+                FONTSIZE 9
+                TOOLTIP ""
+                FONTBOLD .F.
+                FONTITALIC .F.
+                FONTUNDERLINE .F.
+                FONTSTRIKEOUT .F.
+                HELPID Nil
+                VISIBLE .T.
+                TRANSPARENT .F.
+                ACTION Nil
+                AUTOSIZE .F.
+                BACKCOLOR NIL
+                FONTCOLOR NIL
+            END LABEL
+
+            DEFINE LABEL label_2
+                ROW    50
+                COL    190
+                WIDTH  150
+                HEIGHT 15
+                VALUE "Razão Social / Nome *"
+                FONTNAME "Open Sans"
+                FONTSIZE 9
+                TOOLTIP ""
+                FONTBOLD .T.
+                FONTITALIC .F.
+                FONTUNDERLINE .F.
+                FONTSTRIKEOUT .F.
+                HELPID Nil
+                VISIBLE .T.
+                TRANSPARENT .F.
+                ACTION Nil
+                AUTOSIZE .F.
+                BACKCOLOR NIL
+                FONTCOLOR NIL
+            END LABEL
+
+            DEFINE LABEL label_3
+                ROW    50
+                COL    670
+                WIDTH  150
+                HEIGHT 15
+                VALUE "Nome Fantasia / Apelido"
+                FONTNAME "Open Sans"
+                FONTSIZE 9
+                TOOLTIP ""
+                FONTBOLD .F.
+                FONTITALIC .F.
+                FONTUNDERLINE .F.
+                FONTSTRIKEOUT .F.
+                HELPID Nil
+                VISIBLE .T.
+                TRANSPARENT .F.
+                ACTION Nil
+                AUTOSIZE .F.
+                BACKCOLOR NIL
+                FONTCOLOR NIL
+            END LABEL
+
+            DEFINE LABEL label_5
+                ROW    110
+                COL    190
+                WIDTH  75
+                HEIGHT 15
+                VALUE "CNPJ / CPF *"
+                FONTNAME "Open Sans"
+                FONTSIZE 9
+                TOOLTIP ""
+                FONTBOLD .T.
+                FONTITALIC .F.
+                FONTUNDERLINE .F.
+                FONTSTRIKEOUT .F.
+                HELPID Nil
+                VISIBLE .T.
+                TRANSPARENT .F.
+                ACTION Nil
+                AUTOSIZE .F.
+                BACKCOLOR NIL
+                FONTCOLOR NIL
+            END LABEL
+
+            DEFINE LABEL label_6
+                ROW    110
+                COL    370
+                WIDTH  70
+                HEIGHT 15
+                VALUE "I.E. / RG"
+                FONTNAME "Open Sans"
+                FONTSIZE 9
+                TOOLTIP ""
+                FONTBOLD .F.
+                FONTITALIC .F.
+                FONTUNDERLINE .F.
+                FONTSTRIKEOUT .F.
+                HELPID Nil
+                VISIBLE .T.
+                TRANSPARENT .F.
+                ACTION Nil
+                AUTOSIZE .F.
+                BACKCOLOR NIL
+                FONTCOLOR NIL
+            END LABEL
+
+            DEFINE LABEL label_7
+                ROW    205
+                COL    20
+                WIDTH  35
+                HEIGHT 15
+                VALUE "CEP"
+                FONTNAME "Open Sans"
+                FONTSIZE 9
+                TOOLTIP ""
+                FONTBOLD .F.
+                FONTITALIC .F.
+                FONTUNDERLINE .F.
+                FONTSTRIKEOUT .F.
+                HELPID Nil
+                VISIBLE .T.
+                TRANSPARENT .F.
+                ACTION Nil
+                AUTOSIZE .F.
+                BACKCOLOR NIL
+                FONTCOLOR NIL
+            END LABEL
+
+            DEFINE LABEL label_8
+                ROW    205
+                COL    195
+                WIDTH  70
+                HEIGHT 15
+                VALUE "Logradouro"
+                FONTNAME "Open Sans"
+                FONTSIZE 9
+                TOOLTIP ""
+                FONTBOLD .F.
+                FONTITALIC .F.
+                FONTUNDERLINE .F.
+                FONTSTRIKEOUT .F.
+                HELPID Nil
+                VISIBLE .T.
+                TRANSPARENT .F.
+                ACTION Nil
+                AUTOSIZE .F.
+                BACKCOLOR NIL
+                FONTCOLOR NIL
+            END LABEL
+
+            DEFINE FRAME frame_2
+                ROW    180
+                COL    10
+                WIDTH  975
+                HEIGHT 155
+                FONTNAME "Open Sans"
+                FONTSIZE 9
+                FONTBOLD .F.
+                FONTITALIC .F.
+                FONTUNDERLINE .F.
+                FONTSTRIKEOUT .F.
+                CAPTION "Endereço"
+                BACKCOLOR NIL
+                FONTCOLOR NIL
+                OPAQUE .T.
+            END FRAME
+
+            DEFINE LABEL label_9
+                ROW    205
+                COL    630
+                WIDTH  60
+                HEIGHT 15
+                VALUE "Número"
+                FONTNAME "Open Sans"
+                FONTSIZE 9
+                TOOLTIP ""
+                FONTBOLD .F.
+                FONTITALIC .F.
+                FONTUNDERLINE .F.
+                FONTSTRIKEOUT .F.
+                HELPID Nil
+                VISIBLE .T.
+                TRANSPARENT .F.
+                ACTION Nil
+                AUTOSIZE .F.
+                BACKCOLOR NIL
+                FONTCOLOR NIL
+            END LABEL
+
+            DEFINE LABEL label_10
+                ROW    205
+                COL    770
+                WIDTH  90
+                HEIGHT 15
+                VALUE "Complemento"
+                FONTNAME "Open Sans"
+                FONTSIZE 9
+                TOOLTIP ""
+                FONTBOLD .F.
+                FONTITALIC .F.
+                FONTUNDERLINE .F.
+                FONTSTRIKEOUT .F.
+                HELPID Nil
+                VISIBLE .T.
+                TRANSPARENT .F.
+                ACTION Nil
+                AUTOSIZE .F.
+                BACKCOLOR NIL
+                FONTCOLOR NIL
+            END LABEL
+
+            DEFINE LABEL label_12
+                ROW    110
+                COL    550
+                WIDTH  150
+                HEIGHT 15
+                VALUE "Telefone 1 *"
+                FONTNAME "Open Sans"
+                FONTSIZE 9
+                TOOLTIP ""
+                FONTBOLD .T.
+                FONTITALIC .F.
+                FONTUNDERLINE .F.
+                FONTSTRIKEOUT .F.
+                HELPID Nil
+                VISIBLE .T.
+                TRANSPARENT .F.
+                ACTION Nil
+                AUTOSIZE .F.
+                BACKCOLOR NIL
+                FONTCOLOR NIL
+            END LABEL
+
+            DEFINE LABEL label_13
+                ROW    110
+                COL    720
+                WIDTH  150
+                HEIGHT 15
+                VALUE "Telefone 2"
+                FONTNAME "Open Sans"
+                FONTSIZE 9
+                TOOLTIP ""
+                FONTBOLD .F.
+                FONTITALIC .F.
+                FONTUNDERLINE .F.
+                FONTSTRIKEOUT .F.
+                HELPID Nil
+                VISIBLE .T.
+                TRANSPARENT .F.
+                ACTION Nil
+                AUTOSIZE .F.
+                BACKCOLOR NIL
+                FONTCOLOR NIL
+            END LABEL
+
+            DEFINE LABEL label_14
+                ROW    265
+                COL    20
+                WIDTH  60
+                HEIGHT 15
+                VALUE "Bairro"
+                FONTNAME "Open Sans"
+                FONTSIZE 9
+                TOOLTIP ""
+                FONTBOLD .F.
+                FONTITALIC .F.
+                FONTUNDERLINE .F.
+                FONTSTRIKEOUT .F.
+                HELPID Nil
+                VISIBLE .T.
+                TRANSPARENT .F.
+                ACTION Nil
+                AUTOSIZE .F.
+                BACKCOLOR NIL
+                FONTCOLOR NIL
+            END LABEL
+
+            DEFINE LABEL label_15
+                ROW    265
+                COL    360
+                WIDTH  120
+                HEIGHT 15
+                VALUE "Município"
+                FONTNAME "Open Sans"
+                FONTSIZE 9
+                TOOLTIP ""
+                FONTBOLD .F.
+                FONTITALIC .F.
+                FONTUNDERLINE .F.
+                FONTSTRIKEOUT .F.
+                HELPID Nil
+                VISIBLE .T.
+                TRANSPARENT .F.
+                ACTION Nil
+                AUTOSIZE .F.
+                BACKCOLOR NIL
+                FONTCOLOR NIL
+            END LABEL
+
+            DEFINE LABEL label_16
+                ROW    265
+                COL    870
+                WIDTH  50
+                HEIGHT 15
+                VALUE "Estado"
+                FONTNAME "Open Sans"
+                FONTSIZE 9
+                TOOLTIP ""
+                FONTBOLD .F.
+                FONTITALIC .F.
+                FONTUNDERLINE .F.
+                FONTSTRIKEOUT .F.
+                HELPID Nil
+                VISIBLE .T.
+                TRANSPARENT .F.
+                ACTION Nil
+                AUTOSIZE .F.
+                BACKCOLOR NIL
+                FONTCOLOR NIL
+            END LABEL
+
+            DEFINE LABEL label_17
+                ROW    110
+                COL    930
+                WIDTH  45
+                HEIGHT 15
+                VALUE "ATIVO:"
+                FONTNAME "Open Sans"
+                FONTSIZE 9
+                TOOLTIP ""
+                FONTBOLD .F.
+                FONTITALIC .F.
+                FONTUNDERLINE .F.
+                FONTSTRIKEOUT .F.
+                HELPID Nil
+                VISIBLE .T.
+                TRANSPARENT .F.
+                ACTION Nil
+                AUTOSIZE .F.
+                BACKCOLOR NIL
+                FONTCOLOR NIL
+            END LABEL
+
+            DEFINE FRAME Frame_5
+                ROW    345
+                COL    10
+                WIDTH  240
+                HEIGHT 85
+                FONTNAME "Open Sans"
+                FONTSIZE 9
+                FONTBOLD .F.
+                FONTITALIC .F.
+                FONTUNDERLINE .F.
+                FONTSTRIKEOUT .F.
+                CAPTION "Categoria de Emissão no CTe"
+                BACKCOLOR NIL
+                FONTCOLOR NIL
+                OPAQUE .T.
+            END FRAME
+
+            DEFINE COMBOBOX combobox_categoria
+                ROW    370
+                COL    20
+                WIDTH  220
+                HEIGHT 130
+                ITEMS {"Remetente", "Expedidor", "Recebedor","Destinatário","Todos","Representante"}
+                VALUE 0
+                FONTNAME "Open Sans"
+                FONTSIZE 9
+                TOOLTIP ""
+                ONCHANGE Nil
+                ONGOTFOCUS Nil
+                ONLOSTFOCUS Nil
+                FONTBOLD .F.
+                FONTITALIC .F.
+                FONTUNDERLINE .F.
+                FONTSTRIKEOUT .F.
+                HELPID Nil
+                TABSTOP .T.
+                VISIBLE .T.
+                SORT .F.
+                ONENTER Nil
+                ONDISPLAYCHANGE Nil
+                DISPLAYEDIT .F.
+                IMAGE Nil
+                DROPPEDWIDTH Nil
+                ONDROPDOWN Nil
+                ONCLOSEUP Nil
+            END COMBOBOX
+
+            DEFINE FRAME Frame_7
+                ROW    110
+                COL    20
+                WIDTH  160
+                HEIGHT 55
+                FONTNAME "Open Sans"
+                FONTSIZE 9
+                FONTBOLD .F.
+                FONTITALIC .F.
+                FONTUNDERLINE .F.
+                FONTSTRIKEOUT .F.
+                CAPTION "Pessoa"
+                BACKCOLOR NIL
+                FONTCOLOR NIL
+                OPAQUE .T.
+            END FRAME
+
+            DEFINE RADIOGROUP radio_tipo_pessoa
+                ROW    130
+                COL    30
+                WIDTH  140
+                HEIGHT 28
+                OPTIONS {'Jurídica','Física'}
+                VALUE 1
+                FONTNAME "Open Sans"
+                FONTSIZE 9
+                TOOLTIP ""
+                ONCHANGE clients_radio_tipo_pessoa_on_change()
+                FONTBOLD .F.
+                FONTITALIC .F.
+                FONTUNDERLINE .F.
+                FONTSTRIKEOUT .F.
+                HELPID Nil
+                TABSTOP .T.
+                VISIBLE .T.
+                TRANSPARENT .F.
+                SPACING 70
+                BACKCOLOR NIL
+                FONTCOLOR NIL
+                READONLY Nil
+                HORIZONTAL .T.
+            END RADIOGROUP
+
+        END PAGE
+
+        PAGE "Parâmetros EDI & FTP"
+
+            DEFINE FRAME Frame_3
+                ROW    30
+                COL    10
+                WIDTH  970
+                HEIGHT 180
+                FONTNAME "Open Sans"
+                FONTSIZE 9
+                FONTBOLD .F.
+                FONTITALIC .F.
+                FONTUNDERLINE .F.
+                FONTSTRIKEOUT .F.
+                CAPTION "EDI - Intercâmbio Eletrônico de Dados"
+                BACKCOLOR NIL
+                FONTCOLOR NIL
+                OPAQUE .T.
+            END FRAME
+
+            DEFINE FRAME Frame_4
+                ROW    245
+                COL    10
+                WIDTH  970
+                HEIGHT 185
+                FONTNAME "Open Sans"
+                FONTSIZE 9
+                FONTBOLD .F.
+                FONTITALIC .F.
+                FONTUNDERLINE .F.
+                FONTSTRIKEOUT .F.
+                CAPTION "FTP - Protocolo de Transferência de Arquivos"
+                BACKCOLOR NIL
+                FONTCOLOR NIL
+                OPAQUE .T.
+            END FRAME
+
+            DEFINE CHECKBOX checkbox_conemb
+                ROW    85
+                COL    30
+                WIDTH  300
+                HEIGHT 28
+                CAPTION "CONEMB - CONHECIMENTOS EMBARCADOS"
+                VALUE .F.
+                FONTNAME "Open Sans"
+                FONTSIZE 9
+                TOOLTIP ""
+                ONCHANGE Nil
+                ONGOTFOCUS Nil
+                ONLOSTFOCUS Nil
+                FONTBOLD .F.
+                FONTITALIC .F.
+                FONTUNDERLINE .F.
+                FONTSTRIKEOUT .F.
+                BACKCOLOR NIL
+                FONTCOLOR NIL
+                HELPID Nil
+                TABSTOP .T.
+                VISIBLE .T.
+                TRANSPARENT .F.
+            END CHECKBOX
+
+            DEFINE CHECKBOX checkbox_notfis
+                ROW    110
+                COL    30
+                WIDTH  300
+                HEIGHT 28
+                CAPTION "NOTFIS - NOTAS FISCAIS"
+                VALUE .F.
+                FONTNAME "Open Sans"
+                FONTSIZE 9
+                TOOLTIP ""
+                ONCHANGE Nil
+                ONGOTFOCUS Nil
+                ONLOSTFOCUS Nil
+                FONTBOLD .F.
+                FONTITALIC .F.
+                FONTUNDERLINE .F.
+                FONTSTRIKEOUT .F.
+                BACKCOLOR NIL
+                FONTCOLOR NIL
+                HELPID Nil
+                TABSTOP .T.
+                VISIBLE .T.
+                TRANSPARENT .F.
+            END CHECKBOX
+
+            DEFINE CHECKBOX checkbox_ocoren
+                ROW    135
+                COL    30
+                WIDTH  300
+                HEIGHT 28
+                CAPTION "OCOREN - OCORRÊNCIAS NA ENTREGA"
+                VALUE .F.
+                FONTNAME "Open Sans"
+                FONTSIZE 9
+                TOOLTIP ""
+                ONCHANGE Nil
+                ONGOTFOCUS Nil
+                ONLOSTFOCUS Nil
+                FONTBOLD .F.
+                FONTITALIC .F.
+                FONTUNDERLINE .F.
+                FONTSTRIKEOUT .F.
+                BACKCOLOR NIL
+                FONTCOLOR NIL
+                HELPID Nil
+                TABSTOP .T.
+                VISIBLE .T.
+                TRANSPARENT .F.
+            END CHECKBOX
+
+            DEFINE CHECKBOX checkbox_doccob
+                ROW    160
+                COL    30
+                WIDTH  300
+                HEIGHT 28
+                CAPTION "DOCCOB - DOCUMENTOS DE COBRANÇA"
+                VALUE .F.
+                FONTNAME "Open Sans"
+                FONTSIZE 9
+                TOOLTIP ""
+                ONCHANGE Nil
+                ONGOTFOCUS Nil
+                ONLOSTFOCUS Nil
+                FONTBOLD .F.
+                FONTITALIC .F.
+                FONTUNDERLINE .F.
+                FONTSTRIKEOUT .F.
+                BACKCOLOR NIL
+                FONTCOLOR NIL
+                HELPID Nil
+                TABSTOP .T.
+                VISIBLE .T.
+                TRANSPARENT .F.
+            END CHECKBOX
+
+            DEFINE LABEL Label_20
+                ROW    60
+                COL    380
+                WIDTH  300
+                HEIGHT 15
+                VALUE "CAIXA POSTAL DESTINATÁRIO (ESTE CLIENTE)"
+                FONTNAME "Open Sans"
+                FONTSIZE 9
+                TOOLTIP ""
+                FONTBOLD .F.
+                FONTITALIC .F.
+                FONTUNDERLINE .F.
+                FONTSTRIKEOUT .F.
+                HELPID Nil
+                VISIBLE .T.
+                TRANSPARENT .F.
+                ACTION Nil
+                AUTOSIZE .F.
+                BACKCOLOR NIL
+                FONTCOLOR NIL
+            END LABEL
+
+            DEFINE TEXTBOX text_caixa_postal
+                ROW    80
+                COL    380
+                WIDTH  580
+                HEIGHT 24
+                FONTNAME "Open Sans"
+                FONTSIZE 9
+                TOOLTIP ""
+                ONCHANGE Nil
+                ONGOTFOCUS Nil
+                ONLOSTFOCUS Nil
+                FONTBOLD .F.
+                FONTITALIC .F.
+                FONTUNDERLINE .F.
+                FONTSTRIKEOUT .F.
+                ONENTER Nil
+                HELPID Nil
+                TABSTOP .T.
+                VISIBLE .T.
+                READONLY .F.
+                RIGHTALIGN .F.
+                DISABLEDBACKCOLOR Nil
+                DISABLEDFONTCOLOR Nil
+                CASECONVERT UPPER
+                MAXLENGTH 35
+                BACKCOLOR NIL
+                FONTCOLOR NIL
+                INPUTMASK Nil
+                FORMAT Nil
+                VALUE ""
+            END TEXTBOX
+
+            DEFINE LABEL Label_22
+                ROW    303
+                COL    20
+                WIDTH  120
+                HEIGHT 15
+                VALUE "SERVER:"
+                FONTNAME "Open Sans"
+                FONTSIZE 9
+                TOOLTIP ""
+                FONTBOLD .F.
+                FONTITALIC .F.
+                FONTUNDERLINE .F.
+                FONTSTRIKEOUT .F.
+                HELPID Nil
+                VISIBLE .T.
+                TRANSPARENT .F.
+                ACTION Nil
+                AUTOSIZE .F.
+                BACKCOLOR NIL
+                FONTCOLOR NIL
+            END LABEL
+
+            DEFINE LABEL Label_23
+                ROW    333
+                COL    20
+                WIDTH  120
+                HEIGHT 15
+                VALUE "USER ID:"
+                FONTNAME "Open Sans"
+                FONTSIZE 9
+                TOOLTIP ""
+                FONTBOLD .F.
+                FONTITALIC .F.
+                FONTUNDERLINE .F.
+                FONTSTRIKEOUT .F.
+                HELPID Nil
+                VISIBLE .T.
+                TRANSPARENT .F.
+                ACTION Nil
+                AUTOSIZE .F.
+                BACKCOLOR NIL
+                FONTCOLOR NIL
+            END LABEL
+
+            DEFINE LABEL Label_24
+                ROW    363
+                COL    20
+                WIDTH  120
+                HEIGHT 15
+                VALUE "PASSWORD:"
+                FONTNAME "Open Sans"
+                FONTSIZE 9
+                TOOLTIP ""
+                FONTBOLD .F.
+                FONTITALIC .F.
+                FONTUNDERLINE .F.
+                FONTSTRIKEOUT .F.
+                HELPID Nil
+                VISIBLE .T.
+                TRANSPARENT .F.
+                ACTION Nil
+                AUTOSIZE .F.
+                BACKCOLOR NIL
+                FONTCOLOR NIL
+            END LABEL
+
+            DEFINE LABEL Label_25
+                ROW    393
+                COL    20
+                WIDTH  130
+                HEIGHT 15
+                VALUE "PATH (/public_html/...):"
+                FONTNAME "Open Sans"
+                FONTSIZE 9
+                TOOLTIP ""
+                FONTBOLD .F.
+                FONTITALIC .F.
+                FONTUNDERLINE .F.
+                FONTSTRIKEOUT .F.
+                HELPID Nil
+                VISIBLE .T.
+                TRANSPARENT .F.
+                ACTION Nil
+                AUTOSIZE .F.
+                BACKCOLOR NIL
+                FONTCOLOR NIL
+            END LABEL
+
+            DEFINE TEXTBOX text_ftp_server
+                ROW    300
+                COL    160
+                WIDTH  800
+                HEIGHT 24
+                FONTNAME "Open Sans"
+                FONTSIZE 9
+                TOOLTIP "ftp.<url-site.com.br>"
+                ONCHANGE Nil
+                ONGOTFOCUS Nil
+                ONLOSTFOCUS Nil
+                FONTBOLD .F.
+                FONTITALIC .F.
+                FONTUNDERLINE .F.
+                FONTSTRIKEOUT .F.
+                ONENTER Nil
+                HELPID Nil
+                TABSTOP .T.
+                VISIBLE .T.
+                READONLY .F.
+                RIGHTALIGN .F.
+                DISABLEDBACKCOLOR Nil
+                DISABLEDFONTCOLOR Nil
+                CASECONVERT NONE
+                BACKCOLOR NIL
+                FONTCOLOR NIL
+                INPUTMASK Nil
+                FORMAT Nil
+                VALUE ""
+            END TEXTBOX
+
+            DEFINE TEXTBOX text_ftp_user_id
+                ROW    330
+                COL    160
+                WIDTH  800
+                HEIGHT 24
+                FONTNAME "Open Sans"
+                FONTSIZE 9
+                TOOLTIP "Login de Usuário"
+                ONCHANGE Nil
+                ONGOTFOCUS Nil
+                ONLOSTFOCUS Nil
+                FONTBOLD .F.
+                FONTITALIC .F.
+                FONTUNDERLINE .F.
+                FONTSTRIKEOUT .F.
+                ONENTER Nil
+                HELPID Nil
+                TABSTOP .T.
+                VISIBLE .T.
+                READONLY .F.
+                RIGHTALIGN .F.
+                DISABLEDBACKCOLOR Nil
+                DISABLEDFONTCOLOR Nil
+                CASECONVERT NONE
+                BACKCOLOR NIL
+                FONTCOLOR NIL
+                INPUTMASK Nil
+                FORMAT Nil
+                VALUE ""
+            END TEXTBOX
+
+            DEFINE TEXTBOX text_ftp_password
+                ROW    360
+                COL    160
+                WIDTH  800
+                HEIGHT 24
+                FONTNAME "Open Sans"
+                FONTSIZE 9
+                TOOLTIP "Senha"
+                ONCHANGE Nil
+                ONGOTFOCUS Nil
+                ONLOSTFOCUS Nil
+                FONTBOLD .F.
+                FONTITALIC .F.
+                FONTUNDERLINE .F.
+                FONTSTRIKEOUT .F.
+                ONENTER Nil
+                HELPID Nil
+                TABSTOP .T.
+                VISIBLE .T.
+                READONLY .F.
+                RIGHTALIGN .F.
+                DISABLEDBACKCOLOR Nil
+                DISABLEDFONTCOLOR Nil
+                CASECONVERT NONE
+                BACKCOLOR NIL
+                FONTCOLOR NIL
+                INPUTMASK Nil
+                FORMAT Nil
+                VALUE ""
+            END TEXTBOX
+
+            DEFINE TEXTBOX text_ftp_remote_path
+                ROW    390
+                COL    160
+                WIDTH  800
+                HEIGHT 24
+                FONTNAME "Open Sans"
+                FONTSIZE 9
+                TOOLTIP "Pasta remota padrão (diretório)"
+                ONCHANGE Nil
+                ONGOTFOCUS Nil
+                ONLOSTFOCUS Nil
+                FONTBOLD .F.
+                FONTITALIC .F.
+                FONTUNDERLINE .F.
+                FONTSTRIKEOUT .F.
+                ONENTER Nil
+                HELPID Nil
+                TABSTOP .T.
+                VISIBLE .T.
+                READONLY .F.
+                RIGHTALIGN .F.
+                DISABLEDBACKCOLOR Nil
+                DISABLEDFONTCOLOR Nil
+                CASECONVERT NONE
+                BACKCOLOR NIL
+                FONTCOLOR NIL
+                INPUTMASK Nil
+                FORMAT Nil
+                VALUE ""
+            END TEXTBOX
+
+            DEFINE FRAME Frame_6
+                ROW    60
+                COL    20
+                WIDTH  340
+                HEIGHT 140
+                FONTNAME "Open Sans"
+                FONTSIZE 9
+                FONTBOLD .F.
+                FONTITALIC .F.
+                FONTUNDERLINE .F.
+                FONTSTRIKEOUT .F.
+                CAPTION "Gerar os EDI's"
+                BACKCOLOR NIL
+                FONTCOLOR NIL
+                OPAQUE .T.
+            END FRAME
+
+        END PAGE
+
+        PAGE "Histórico"
+
+            DEFINE GRID grid_clients_events
+                ROW    40
+                COL    10
+                WIDTH  250
+                HEIGHT 360
+                ITEMS Nil
+                VALUE Nil
+                WIDTHS { 85, 155 }
+                HEADERS {'ID#','DATA'}
+                FONTNAME "Open Sans"
+                FONTSIZE 9
+                TOOLTIP ""
+                ONCHANGE grid_clients_events_on_change()
+                ONGOTFOCUS Nil
+                ONLOSTFOCUS Nil
+                FONTBOLD .F.
+                FONTITALIC .F.
+                FONTUNDERLINE .F.
+                FONTSTRIKEOUT .F.
+                ONDBLCLICK Nil
+                ONHEADCLICK Nil
+                ONQUERYDATA Nil
+                MULTISELECT .F.
+                ALLOWEDIT .F.
+                VIRTUAL .F.
+                DYNAMICBACKCOLOR {app:dynamic_back_color,app:dynamic_back_color}
+                DYNAMICFORECOLOR Nil
+                COLUMNWHEN Nil
+                COLUMNVALID Nil
+                COLUMNCONTROLS { { "TEXTBOX","NUMERIC" },{ "TEXTBOX","CHARACTER" } }
+                SHOWHEADERS .T.
+                CELLNAVIGATION .F.
+                NOLINES .F.
+                HELPID Nil
+                IMAGE Nil
+                JUSTIFY {GRID_JTFY_RIGHT,GRID_JTFY_CENTER}
+                ITEMCOUNT Nil
+                BACKCOLOR NIL
+                FONTCOLOR NIL
+                HEADERIMAGES Nil
+                ROWSOURCE Nil
+                COLUMNFIELDS Nil
+                ALLOWAPPEND .F.
+                ALLOWDELETE .F.
+                BUFFERED .F.
+                DYNAMICDISPLAY Nil
+                ONSAVE Nil
+                LOCKCOLUMNS 1
+            END GRID
+
+            DEFINE EDITBOX editbox_clients_events
+                ROW    40
+                COL    270
+                WIDTH  710
+                HEIGHT 360
+                VALUE ""
+                FONTNAME "Open Sans"
+                FONTSIZE 9
+                TOOLTIP ""
+                ONCHANGE Nil
+                ONGOTFOCUS Nil
+                ONLOSTFOCUS Nil
+                FONTBOLD .F.
+                FONTITALIC .F.
+                FONTUNDERLINE .F.
+                FONTSTRIKEOUT .F.
+                HELPID Nil
+                TABSTOP .T.
+                VISIBLE .T.
+                READONLY .T.
+                HSCROLLBAR .T.
+                VSCROLLBAR .T.
+                DISABLEDBACKCOLOR Nil
+                DISABLEDFONTCOLOR Nil
+                BACKCOLOR NIL
+                FONTCOLOR NIL
+            END EDITBOX
+
+        END PAGE
+
+    END TAB
+
+    DEFINE BUTTON btt_save
+        ROW    470
+        COL    580
+        WIDTH  130
+        HEIGHT 35
+        ACTION clients_button_save_action(.F.)
+        CAPTION "&Salvar"
+        FONTNAME "Open Sans"
+        FONTSIZE 9
+        TOOLTIP ""
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        ONGOTFOCUS Nil
+        ONLOSTFOCUS Nil
+        HELPID Nil
+        FLAT .F.
+        TABSTOP .T.
+        VISIBLE .T.
+        TRANSPARENT .T.
+        MULTILINE .F.
+        PICTURE "bttSave"
+        PICTALIGNMENT LEFT
+    END BUTTON
+
+    DEFINE BUTTON btt_save_and_new
+        ROW    470
+        COL    720
+        WIDTH  140
+        HEIGHT 35
+        ACTION clients_button_save_action(.T.)
+        CAPTION "Salvar e &Novo"
+        FONTNAME "Open Sans"
+        FONTSIZE 9
+        TOOLTIP ""
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        ONGOTFOCUS Nil
+        ONLOSTFOCUS Nil
+        HELPID Nil
+        FLAT .F.
+        TABSTOP .T.
+        VISIBLE .T.
+        TRANSPARENT .T.
+        MULTILINE .F.
+        PICTURE "bttSave"
+        PICTALIGNMENT LEFT
+    END BUTTON
+
+    DEFINE BUTTON btn_cancel
+        ROW    470
+        COL    870
+        WIDTH  130
+        HEIGHT 35
+        ACTION clients.RELEASE
+        CAPTION "&Cancelar"
+        FONTNAME "Open Sans"
+        FONTSIZE 9
+        TOOLTIP ""
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        ONGOTFOCUS Nil
+        ONLOSTFOCUS Nil
+        HELPID Nil
+        FLAT .F.
+        TABSTOP .T.
+        VISIBLE .T.
+        TRANSPARENT .T.
+        MULTILINE .F.
+        PICTURE "bttExit"
+        PICTALIGNMENT LEFT
+    END BUTTON
+
+    DEFINE LABEL label_msg_historico
+        ROW    470
+        COL    20
+        WIDTH  300
+        HEIGHT 24
+        VALUE "Histórico dos últimos seis meses"
+        FONTNAME "Open Sans"
+        FONTSIZE 14
+        TOOLTIP ""
+        FONTBOLD .F.
+        FONTITALIC .T.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        HELPID Nil
+        VISIBLE .F.
+        TRANSPARENT .F.
+        ACTION Nil
+        AUTOSIZE .T.
+        BACKCOLOR NIL
+        FONTCOLOR {0,128,192}
+    END LABEL
+
+END WINDOW

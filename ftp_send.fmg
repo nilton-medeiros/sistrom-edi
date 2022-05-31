@@ -1,0 +1,391 @@
+* HMG-IDE UNICODE Form Designer Generated Code
+* (c) Roberto Lopez - http://sites.google.com/site/hmgweb
+
+DEFINE WINDOW TEMPLATE AT 142 , 299 WIDTH 870 HEIGHT 570 VIRTUAL WIDTH Nil VIRTUAL HEIGHT Nil TITLE "" ICON NIL CHILD NOMAXIMIZE NOSIZE CURSOR NIL ON INIT ftp_send_form_on_init() ON RELEASE Nil
+
+    DEFINE STATUSBAR FONT "Open Sans" SIZE 9
+        STATUSITEM "Status" TOOLTIP "Mostra a última operação executada até o momento" FLAT
+    END STATUSBAR
+
+    DEFINE FRAME Frame_1
+        ROW    20
+        COL    20
+        WIDTH  820
+        HEIGHT 95
+        FONTNAME "Open Sans"
+        FONTSIZE 9
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        CAPTION "Cliente Destinatário de FTP"
+        BACKCOLOR NIL
+        FONTCOLOR NIL
+        OPAQUE .T.
+    END FRAME
+
+    DEFINE LABEL Label_1
+        ROW    50
+        COL    30
+        WIDTH  140
+        HEIGHT 15
+        VALUE "CNPJ ou Razão Social"
+        FONTNAME "Open Sans"
+        FONTSIZE 9
+        TOOLTIP "Digite apenas números (14 dígitos) para pesquisar pelo CNPJ ou qualquier parte da Razão Social"
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        HELPID Nil
+        VISIBLE .T.
+        TRANSPARENT .F.
+        ACTION Nil
+        AUTOSIZE .T.
+        BACKCOLOR NIL
+        FONTCOLOR NIL
+    END LABEL
+
+    DEFINE TEXTBOX text_cnpj
+        ROW    70
+        COL    30
+        WIDTH  200
+        HEIGHT 24
+        FONTNAME "Open Sans"
+        FONTSIZE 9
+        TOOLTIP "Digite apenas números (14 dígitos) para pesquisar pelo CNPJ ou qualquier parte da Razão Social e pressione ENTER"
+        ONCHANGE Nil
+        ONGOTFOCUS Nil
+        ONLOSTFOCUS Nil
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        ONENTER ftp_send_text_cnpj_on_enter()
+        HELPID Nil
+        TABSTOP .T.
+        VISIBLE .T.
+        READONLY .F.
+        RIGHTALIGN .F.
+        DISABLEDBACKCOLOR Nil
+        DISABLEDFONTCOLOR Nil
+        CASECONVERT NONE
+        BACKCOLOR NIL
+        FONTCOLOR NIL
+        INPUTMASK Nil
+        FORMAT Nil
+        VALUE ""
+    END TEXTBOX
+
+    DEFINE LABEL Label_2
+        ROW    50
+        COL    245
+        WIDTH  120
+        HEIGHT 15
+        VALUE "ID"
+        FONTNAME "Arial"
+        FONTSIZE 9
+        TOOLTIP ""
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        HELPID Nil
+        VISIBLE .T.
+        TRANSPARENT .F.
+        ACTION Nil
+        AUTOSIZE .T.
+        BACKCOLOR NIL
+        FONTCOLOR NIL
+    END LABEL
+
+    DEFINE TEXTBOX text_id
+        ROW    70
+        COL    245
+        WIDTH  140
+        HEIGHT 24
+        FONTNAME "Arial"
+        FONTSIZE 9
+        TOOLTIP ""
+        ONCHANGE Nil
+        ONGOTFOCUS Nil
+        ONLOSTFOCUS Nil
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        ONENTER Nil
+        HELPID Nil
+        TABSTOP .F.
+        VISIBLE .T.
+        READONLY .T.
+        RIGHTALIGN .F.
+        DISABLEDBACKCOLOR Nil
+        DISABLEDFONTCOLOR Nil
+        CASECONVERT NONE
+        BACKCOLOR NIL
+        FONTCOLOR NIL
+        INPUTMASK "999,999,999"
+        FORMAT "E"
+        NUMERIC .T.
+        VALUE Nil
+    END TEXTBOX
+
+    DEFINE LABEL Label_3
+        ROW    50
+        COL    400
+        WIDTH  120
+        HEIGHT 15
+        VALUE "Cliente"
+        FONTNAME "Open Sans"
+        FONTSIZE 9
+        TOOLTIP ""
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        HELPID Nil
+        VISIBLE .T.
+        TRANSPARENT .F.
+        ACTION Nil
+        AUTOSIZE .T.
+        BACKCOLOR NIL
+        FONTCOLOR NIL
+    END LABEL
+
+    DEFINE TEXTBOX text_razao_social
+        ROW    70
+        COL    400
+        WIDTH  430
+        HEIGHT 24
+        FONTNAME "Open Sans"
+        FONTSIZE 9
+        TOOLTIP ""
+        ONCHANGE Nil
+        ONGOTFOCUS Nil
+        ONLOSTFOCUS Nil
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        ONENTER Nil
+        HELPID Nil
+        TABSTOP .F.
+        VISIBLE .T.
+        READONLY .T.
+        RIGHTALIGN .F.
+        DISABLEDBACKCOLOR Nil
+        DISABLEDFONTCOLOR Nil
+        CASECONVERT NONE
+        BACKCOLOR NIL
+        FONTCOLOR NIL
+        INPUTMASK Nil
+        FORMAT Nil
+        VALUE ""
+    END TEXTBOX
+
+    DEFINE FRAME Frame_2
+        ROW    120
+        COL    20
+        WIDTH  820
+        HEIGHT 315
+        FONTNAME "Open Sans"
+        FONTSIZE 9
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        CAPTION "Desmarque os Arquivos que não deseja enviar neste momento"
+        BACKCOLOR NIL
+        FONTCOLOR NIL
+        OPAQUE .T.
+    END FRAME
+
+    DEFINE PROGRESSBAR progress_bar_ftp
+        ROW    460
+        COL    25
+        WIDTH  400
+        HEIGHT 30
+        RANGEMIN 1
+        RANGEMAX 10
+        VALUE 0
+        TOOLTIP ""
+        HELPID Nil
+        VISIBLE .F.
+        SMOOTH .F.
+        VERTICAL .F.
+        BACKCOLOR NIL
+        FORECOLOR NIL
+    END PROGRESSBAR
+
+    DEFINE BUTTON button_send_ftp
+        ROW    450
+        COL    540
+        WIDTH  140
+        HEIGHT 50
+        ACTION ftp_send_button_send_ftp_action()
+        CAPTION "&Enviar FTP"
+        FONTNAME "Open Sans"
+        FONTSIZE 9
+        TOOLTIP ""
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        ONGOTFOCUS Nil
+        ONLOSTFOCUS Nil
+        HELPID Nil
+        FLAT .F.
+        TABSTOP .T.
+        VISIBLE .T.
+        TRANSPARENT .T.
+        MULTILINE .F.
+        PICTURE "bttFTPGray"
+        PICTALIGNMENT LEFT
+    END BUTTON
+
+    DEFINE BUTTON button_close
+        ROW    450
+        COL    700
+        WIDTH  140
+        HEIGHT 50
+        ACTION ftp_send.RELEASE
+        CAPTION "&Fechar"
+        FONTNAME "Open Sans"
+        FONTSIZE 9
+        TOOLTIP ""
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        ONGOTFOCUS Nil
+        ONLOSTFOCUS Nil
+        HELPID Nil
+        FLAT .F.
+        TABSTOP .T.
+        VISIBLE .T.
+        TRANSPARENT .T.
+        MULTILINE .F.
+        PICTURE "bttExit"
+        PICTALIGNMENT LEFT
+    END BUTTON
+
+    DEFINE FRAME Frame_4
+        ROW    450
+        COL    20
+        WIDTH  410
+        HEIGHT 50
+        FONTNAME "Open Sans"
+        FONTSIZE 9
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        CAPTION NIL
+        BACKCOLOR NIL
+        FONTCOLOR NIL
+        OPAQUE .T.
+    END FRAME
+
+    DEFINE CHECKBOX checkbox_files_sent
+        ROW    150
+        COL    30
+        WIDTH  350
+        HEIGHT 15
+        CAPTION "Visualizar Arquivos que já foram enviados deste cliente"
+        VALUE .F.
+        FONTNAME "Arial"
+        FONTSIZE 9
+        TOOLTIP ""
+        ONCHANGE ftp_send_grid_files_to_send_load()
+        ONGOTFOCUS Nil
+        ONLOSTFOCUS Nil
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        BACKCOLOR NIL
+        FONTCOLOR NIL
+        HELPID Nil
+        TABSTOP .T.
+        VISIBLE .T.
+        TRANSPARENT .F.
+    END CHECKBOX
+
+    DEFINE GRID grid_files_to_send
+        ROW    180
+        COL    30
+        WIDTH  800
+        HEIGHT 245
+        ITEMS Nil
+        VALUE Nil
+        WIDTHS { 400, 150, 200 }
+        HEADERS { 'Arquivo EDI', 'Criado Em', 'Status' }
+        FONTNAME "Arial"
+        FONTSIZE 9
+        TOOLTIP ""
+        ONCHANGE Nil
+        ONGOTFOCUS Nil
+        ONLOSTFOCUS Nil
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        ONDBLCLICK Nil
+        ONHEADCLICK Nil
+        ONQUERYDATA Nil
+        MULTISELECT .F.
+        ALLOWEDIT .F.
+        VIRTUAL .F.
+        DYNAMICBACKCOLOR {app:dynamic_back_color, app:dynamic_back_color, app:dynamic_back_color}
+        DYNAMICFORECOLOR Nil
+        COLUMNWHEN Nil
+        COLUMNVALID Nil
+        COLUMNCONTROLS Nil
+        SHOWHEADERS .T.
+        CELLNAVIGATION .F.
+        NOLINES .F.
+        HELPID Nil
+        IMAGE Nil
+        JUSTIFY { GRID_JTFY_LEFT, GRID_JTFY_CENTER, GRID_JTFY_LEFT }
+        ITEMCOUNT Nil
+        BACKCOLOR NIL
+        FONTCOLOR NIL
+        HEADERIMAGES Nil
+        ROWSOURCE Nil
+        COLUMNFIELDS Nil
+        ALLOWAPPEND .F.
+        ALLOWDELETE .F.
+        BUFFERED .F.
+        DYNAMICDISPLAY Nil
+        ONSAVE Nil
+        LOCKCOLUMNS 1
+    END GRID
+
+    DEFINE BUTTON button_open_folder
+        ROW    450
+        COL    460
+        WIDTH  50
+        HEIGHT 50
+        ACTION ftp_send_button_open_folder_action()
+        CAPTION Nil
+        FONTNAME "Arial"
+        FONTSIZE 9
+        TOOLTIP "Clique aqui para abrir a pasta de EDI"
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        ONGOTFOCUS Nil
+        ONLOSTFOCUS Nil
+        HELPID Nil
+        FLAT .F.
+        TABSTOP .T.
+        VISIBLE .T.
+        TRANSPARENT .T.
+        MULTILINE .F.
+        PICTURE "bttFolderOpen"
+        PICTALIGNMENT LEFT
+    END BUTTON
+
+END WINDOW

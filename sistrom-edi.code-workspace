@@ -1,0 +1,22 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"cSpell.words": [
+			"Globais",
+			"Gonçalves",
+			"Início",
+			"Medeiros",
+			"Nilton",
+			"PROCEDA",
+			"Programa",
+			"Sistrom"
+		],
+		"files.trimFinalNewlines": true,
+		"files.trimTrailingWhitespace": true,
+		"harbour.validating": false
+	}
+}

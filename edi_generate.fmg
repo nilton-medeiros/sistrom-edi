@@ -1,0 +1,621 @@
+* HMG-IDE UNICODE Form Designer Generated Code
+* (c) Roberto Lopez - http://sites.google.com/site/hmgweb
+
+DEFINE WINDOW TEMPLATE AT 143 , 298 WIDTH 870 HEIGHT 520 VIRTUAL WIDTH Nil VIRTUAL HEIGHT Nil TITLE "" ICON NIL CHILD CURSOR NIL ON INIT edi_generate_form_on_init() ON RELEASE Nil
+
+    DEFINE STATUSBAR FONT "Open Sans" SIZE 9
+        STATUSITEM "Status" TOOLTIP "Mostra a última operação executada até o momento" FLAT
+    END STATUSBAR
+
+    DEFINE FRAME Frame_1
+        ROW    20
+        COL    20
+        WIDTH  820
+        HEIGHT 95
+        FONTNAME "Open Sans"
+        FONTSIZE 9
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        CAPTION "Cliente Destinatário do EDI"
+        BACKCOLOR NIL
+        FONTCOLOR NIL
+        OPAQUE .T.
+    END FRAME
+
+    DEFINE LABEL Label_1
+        ROW    50
+        COL    30
+        WIDTH  140
+        HEIGHT 15
+        VALUE "CNPJ ou Razão Social"
+        FONTNAME "Open Sans"
+        FONTSIZE 9
+        TOOLTIP "Digite apenas números (14 dígitos) para pesquisar pelo CNPJ ou qualquier parte da Razão Social"
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        HELPID Nil
+        VISIBLE .T.
+        TRANSPARENT .F.
+        ACTION Nil
+        AUTOSIZE .T.
+        BACKCOLOR NIL
+        FONTCOLOR NIL
+    END LABEL
+
+    DEFINE TEXTBOX text_cnpj
+        ROW    70
+        COL    30
+        WIDTH  200
+        HEIGHT 24
+        FONTNAME "Open Sans"
+        FONTSIZE 9
+        TOOLTIP "Digite apenas números (14 dígitos) para pesquisar pelo CNPJ ou qualquier parte da Razão Social e pressione ENTER"
+        ONCHANGE Nil
+        ONGOTFOCUS Nil
+        ONLOSTFOCUS Nil
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        ONENTER edi_generate_text_cnpj_on_enter()
+        HELPID Nil
+        TABSTOP .T.
+        VISIBLE .T.
+        READONLY .F.
+        RIGHTALIGN .F.
+        DISABLEDBACKCOLOR Nil
+        DISABLEDFONTCOLOR Nil
+        CASECONVERT NONE
+        BACKCOLOR NIL
+        FONTCOLOR NIL
+        INPUTMASK Nil
+        FORMAT Nil
+        VALUE ""
+    END TEXTBOX
+
+    DEFINE LABEL Label_2
+        ROW    50
+        COL    245
+        WIDTH  120
+        HEIGHT 15
+        VALUE "ID"
+        FONTNAME "Arial"
+        FONTSIZE 9
+        TOOLTIP ""
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        HELPID Nil
+        VISIBLE .T.
+        TRANSPARENT .F.
+        ACTION Nil
+        AUTOSIZE .T.
+        BACKCOLOR NIL
+        FONTCOLOR NIL
+    END LABEL
+
+    DEFINE TEXTBOX text_id
+        ROW    70
+        COL    245
+        WIDTH  140
+        HEIGHT 24
+        FONTNAME "Arial"
+        FONTSIZE 9
+        TOOLTIP ""
+        ONCHANGE Nil
+        ONGOTFOCUS Nil
+        ONLOSTFOCUS Nil
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        ONENTER Nil
+        HELPID Nil
+        TABSTOP .F.
+        VISIBLE .T.
+        READONLY .T.
+        RIGHTALIGN .F.
+        DISABLEDBACKCOLOR Nil
+        DISABLEDFONTCOLOR Nil
+        CASECONVERT NONE
+        BACKCOLOR NIL
+        FONTCOLOR NIL
+        INPUTMASK "999,999,999"
+        FORMAT "E"
+        NUMERIC .T.
+        VALUE Nil
+    END TEXTBOX
+
+    DEFINE LABEL Label_3
+        ROW    50
+        COL    400
+        WIDTH  120
+        HEIGHT 15
+        VALUE "Cliente"
+        FONTNAME "Open Sans"
+        FONTSIZE 9
+        TOOLTIP ""
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        HELPID Nil
+        VISIBLE .T.
+        TRANSPARENT .F.
+        ACTION Nil
+        AUTOSIZE .T.
+        BACKCOLOR NIL
+        FONTCOLOR NIL
+    END LABEL
+
+    DEFINE TEXTBOX text_razao_social
+        ROW    70
+        COL    400
+        WIDTH  400
+        HEIGHT 24
+        FONTNAME "Open Sans"
+        FONTSIZE 9
+        TOOLTIP ""
+        ONCHANGE Nil
+        ONGOTFOCUS Nil
+        ONLOSTFOCUS Nil
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        ONENTER Nil
+        HELPID Nil
+        TABSTOP .F.
+        VISIBLE .T.
+        READONLY .T.
+        RIGHTALIGN .F.
+        DISABLEDBACKCOLOR Nil
+        DISABLEDFONTCOLOR Nil
+        CASECONVERT NONE
+        BACKCOLOR NIL
+        FONTCOLOR NIL
+        INPUTMASK Nil
+        FORMAT Nil
+        VALUE ""
+    END TEXTBOX
+
+    DEFINE FRAME Frame_2
+        ROW    125
+        COL    20
+        WIDTH  820
+        HEIGHT 140
+        FONTNAME "Open Sans"
+        FONTSIZE 9
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        CAPTION "EDI's de Emissão e Entrega"
+        BACKCOLOR NIL
+        FONTCOLOR NIL
+        OPAQUE .T.
+    END FRAME
+
+    DEFINE CHECKBOX checkbox_conemb
+        ROW    155
+        COL    30
+        WIDTH  300
+        HEIGHT 28
+        CAPTION "CONEMB - CTE's EMBARCADOS"
+        VALUE .F.
+        FONTNAME "Open Sans"
+        FONTSIZE 9
+        TOOLTIP ""
+        ONCHANGE Nil
+        ONGOTFOCUS Nil
+        ONLOSTFOCUS Nil
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        BACKCOLOR NIL
+        FONTCOLOR NIL
+        HELPID Nil
+        TABSTOP .T.
+        VISIBLE .T.
+        TRANSPARENT .F.
+    END CHECKBOX
+
+    DEFINE CHECKBOX checkbox_notfis
+        ROW    190
+        COL    30
+        WIDTH  300
+        HEIGHT 28
+        CAPTION "NOTFIS - DADOS DAS NOTAS FISCAIS"
+        VALUE .F.
+        FONTNAME "Open Sans"
+        FONTSIZE 9
+        TOOLTIP ""
+        ONCHANGE Nil
+        ONGOTFOCUS Nil
+        ONLOSTFOCUS Nil
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        BACKCOLOR NIL
+        FONTCOLOR NIL
+        HELPID Nil
+        TABSTOP .T.
+        VISIBLE .T.
+        TRANSPARENT .F.
+    END CHECKBOX
+
+    DEFINE CHECKBOX checkbox_ocoren
+        ROW    225
+        COL    30
+        WIDTH  300
+        HEIGHT 28
+        CAPTION "OCOREN - OCORRÊNCIAS NA ENTREGA"
+        VALUE .F.
+        FONTNAME "Open Sans"
+        FONTSIZE 9
+        TOOLTIP ""
+        ONCHANGE Nil
+        ONGOTFOCUS Nil
+        ONLOSTFOCUS Nil
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        BACKCOLOR NIL
+        FONTCOLOR NIL
+        HELPID Nil
+        TABSTOP .T.
+        VISIBLE .T.
+        TRANSPARENT .F.
+    END CHECKBOX
+
+    DEFINE FRAME Frame_3
+        ROW    275
+        COL    20
+        WIDTH  820
+        HEIGHT 100
+        FONTNAME "Open Sans"
+        FONTSIZE 9
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        CAPTION "EDI de Cobrança (Faturamento)"
+        BACKCOLOR NIL
+        FONTCOLOR NIL
+        OPAQUE .T.
+    END FRAME
+
+    DEFINE LABEL Label_4
+        ROW    155
+        COL    400
+        WIDTH  200
+        HEIGHT 15
+        VALUE "Período de emissões dos CTE's"
+        FONTNAME "Open Sans"
+        FONTSIZE 9
+        TOOLTIP ""
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        HELPID Nil
+        VISIBLE .T.
+        TRANSPARENT .F.
+        ACTION Nil
+        AUTOSIZE .T.
+        BACKCOLOR NIL
+        FONTCOLOR NIL
+    END LABEL
+
+    DEFINE DATEPICKER datepicker_emissoes_start
+        ROW    175
+        COL    400
+        WIDTH  120
+        HEIGHT 24
+        VALUE CTOD(" / / ")
+        FONTNAME "Open Sans"
+        FONTSIZE 9
+        TOOLTIP ""
+        ONCHANGE edi_generate_datepicker_emissoes_on_change()
+        ONGOTFOCUS Nil
+        ONLOSTFOCUS Nil
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        ONENTER Nil
+        HELPID Nil
+        TABSTOP .T.
+        VISIBLE .T.
+        SHOWNONE .F.
+        UPDOWN .F.
+        RIGHTALIGN .F.
+    END DATEPICKER
+
+    DEFINE LABEL Label_5
+        ROW    180
+        COL    540
+        WIDTH  15
+        HEIGHT 18
+        VALUE "À"
+        FONTNAME "Open Sans"
+        FONTSIZE 9
+        TOOLTIP ""
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        HELPID Nil
+        VISIBLE .T.
+        TRANSPARENT .F.
+        ACTION Nil
+        AUTOSIZE .F.
+        BACKCOLOR NIL
+        FONTCOLOR NIL
+    END LABEL
+
+    DEFINE DATEPICKER datepicker_emissoes_end
+        ROW    175
+        COL    570
+        WIDTH  120
+        HEIGHT 24
+        VALUE CTOD(" / / ")
+        FONTNAME "Open Sans"
+        FONTSIZE 9
+        TOOLTIP ""
+        ONCHANGE edi_generate_datepicker_emissoes_on_change()
+        ONGOTFOCUS Nil
+        ONLOSTFOCUS Nil
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        ONENTER Nil
+        HELPID Nil
+        TABSTOP .T.
+        VISIBLE .T.
+        SHOWNONE .F.
+        UPDOWN .F.
+        RIGHTALIGN .F.
+    END DATEPICKER
+
+    DEFINE CHECKBOX checkbox_doccob
+        ROW    305
+        COL    30
+        WIDTH  300
+        HEIGHT 28
+        CAPTION "DOCCOB - DOCUMENTOS DE COBRANÇA"
+        VALUE .F.
+        FONTNAME "Open Sans"
+        FONTSIZE 9
+        TOOLTIP ""
+        ONCHANGE Nil
+        ONGOTFOCUS Nil
+        ONLOSTFOCUS Nil
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        BACKCOLOR NIL
+        FONTCOLOR NIL
+        HELPID Nil
+        TABSTOP .T.
+        VISIBLE .T.
+        TRANSPARENT .F.
+    END CHECKBOX
+
+    DEFINE LABEL Label_6
+        ROW    305
+        COL    400
+        WIDTH  300
+        HEIGHT 15
+        VALUE "Período de Faturamento no Contas à Receber"
+        FONTNAME "Open Sans"
+        FONTSIZE 9
+        TOOLTIP ""
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        HELPID Nil
+        VISIBLE .T.
+        TRANSPARENT .F.
+        ACTION Nil
+        AUTOSIZE .T.
+        BACKCOLOR NIL
+        FONTCOLOR NIL
+    END LABEL
+
+    DEFINE DATEPICKER datepicker_fatura_start
+        ROW    325
+        COL    400
+        WIDTH  120
+        HEIGHT 24
+        VALUE CTOD(" / / ")
+        FONTNAME "Open Sans"
+        FONTSIZE 9
+        TOOLTIP ""
+        ONCHANGE edi_generate_datepicker_fatura_on_change()
+        ONGOTFOCUS Nil
+        ONLOSTFOCUS Nil
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        ONENTER Nil
+        HELPID Nil
+        TABSTOP .T.
+        VISIBLE .T.
+        SHOWNONE .F.
+        UPDOWN .F.
+        RIGHTALIGN .F.
+    END DATEPICKER
+
+    DEFINE LABEL Label_7
+        ROW    330
+        COL    540
+        WIDTH  15
+        HEIGHT 18
+        VALUE "À"
+        FONTNAME "Open Sans"
+        FONTSIZE 9
+        TOOLTIP ""
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        HELPID Nil
+        VISIBLE .T.
+        TRANSPARENT .F.
+        ACTION Nil
+        AUTOSIZE .F.
+        BACKCOLOR NIL
+        FONTCOLOR NIL
+    END LABEL
+
+    DEFINE DATEPICKER datepicker_fatura_end
+        ROW    325
+        COL    570
+        WIDTH  120
+        HEIGHT 24
+        VALUE CTOD(" / / ")
+        FONTNAME "Open Sans"
+        FONTSIZE 9
+        TOOLTIP ""
+        ONCHANGE edi_generate_datepicker_fatura_on_change()
+        ONGOTFOCUS Nil
+        ONLOSTFOCUS Nil
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        ONENTER Nil
+        HELPID Nil
+        TABSTOP .T.
+        VISIBLE .T.
+        SHOWNONE .F.
+        UPDOWN .F.
+        RIGHTALIGN .F.
+    END DATEPICKER
+
+    DEFINE PROGRESSBAR progress_bar_edi
+        ROW    398
+        COL    25
+        WIDTH  395
+        HEIGHT 35
+        RANGEMIN 1
+        RANGEMAX 10
+        VALUE 0
+        TOOLTIP ""
+        HELPID Nil
+        VISIBLE .F.
+        SMOOTH .F.
+        VERTICAL .F.
+        BACKCOLOR NIL
+        FORECOLOR NIL
+    END PROGRESSBAR
+
+    DEFINE BUTTON button_gerar_edi
+        ROW    390
+        COL    540
+        WIDTH  140
+        HEIGHT 50
+        ACTION edi_generate_button_gerar_edi_action()
+        CAPTION "&Gerar EDI"
+        FONTNAME "Open Sans"
+        FONTSIZE 9
+        TOOLTIP ""
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        ONGOTFOCUS Nil
+        ONLOSTFOCUS Nil
+        HELPID Nil
+        FLAT .F.
+        TABSTOP .T.
+        VISIBLE .T.
+        TRANSPARENT .T.
+        MULTILINE .F.
+        PICTURE "bttEDIGray"
+        PICTALIGNMENT LEFT
+    END BUTTON
+
+    DEFINE BUTTON button_cancelar
+        ROW    390
+        COL    700
+        WIDTH  140
+        HEIGHT 50
+        ACTION edi_generate.RELEASE
+        CAPTION "&Fechar"
+        FONTNAME "Open Sans"
+        FONTSIZE 9
+        TOOLTIP ""
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        ONGOTFOCUS Nil
+        ONLOSTFOCUS Nil
+        HELPID Nil
+        FLAT .F.
+        TABSTOP .T.
+        VISIBLE .T.
+        TRANSPARENT .T.
+        MULTILINE .F.
+        PICTURE "bttExit"
+        PICTALIGNMENT LEFT
+    END BUTTON
+
+    DEFINE FRAME Frame_4
+        ROW    390
+        COL    20
+        WIDTH  405
+        HEIGHT 51
+        FONTNAME "Open Sans"
+        FONTSIZE 9
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        CAPTION NIL
+        BACKCOLOR NIL
+        FONTCOLOR NIL
+        OPAQUE .T.
+    END FRAME
+
+    DEFINE BUTTON button_open_folder
+        ROW    390
+        COL    460
+        WIDTH  50
+        HEIGHT 50
+        ACTION edi_generate_button_open_folder_action()
+        CAPTION Nil
+        FONTNAME "Arial"
+        FONTSIZE 9
+        TOOLTIP "Clique aqui para abrir a pasta de EDI"
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        ONGOTFOCUS Nil
+        ONLOSTFOCUS Nil
+        HELPID Nil
+        FLAT .F.
+        TABSTOP .T.
+        VISIBLE .T.
+        TRANSPARENT .T.
+        MULTILINE .F.
+        PICTURE "bttFolderOpen"
+        PICTALIGNMENT LEFT
+    END BUTTON
+
+END WINDOW

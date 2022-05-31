@@ -1,0 +1,109 @@
+1 VERSIONINFO
+  FILEVERSION 1,1,00
+ {
+    BLOCK "StringFileInfo"
+    {
+        BLOCK "040904E4"
+        {
+            VALUE "CompanyName"      , "Sistrom Sistemas Web"
+            VALUE "FileDescription"  , "SISTEMA DE EDI PADRAO PROCEDA DO TMS.CLOUD"
+            VALUE "LegalCopyright"   , "Copyright (c) Sistrom Web"
+            VALUE "OriginalFilename" , "SistromEDI.exe"
+            VALUE "ProductName"      , "Sistrom EDI"
+            VALUE "ProductVersion"   , "1.1.00.Hb.MS"
+        }
+    }
+    BLOCK "VarFileInfo"
+    {
+        VALUE "Translation", 0x0416, 1252
+    }
+}
+AppIcon ICON "resources\\edi48.ico"
+ICONE ICON resources\edi48.ico
+MainIcon ICON resources\edi48.ico
+LoginManager ICON resources\loginmanager_32.ico
+// Botões de menu
+bttEDIBlue PNG resources\edi_32-blue.png
+bttEDIPink PNG resources\edi_32-pink.png
+bttEDIGray PNG resources\edi_32-gray.png
+bttFTPBlue PNG resources\upload_page_doc_32-blue.png
+bttFTPPink PNG resources\upload_page_doc_32-pink.png
+bttFTPGray PNG resources\upload_page_doc_32-gray.png
+bttRegistrationsBlue PNG resources\folder_32-blue.png
+bttRegistrationsPink PNG resources\folder_32-pink.png
+bttRegistrationsGray PNG resources\folder_32-gray.png
+bttSystemBlue PNG resources\monitor_32-blue.png
+bttSystemGray PNG resources\monitor_32-gray.png
+bttSystemPink PNG resources\monitor_32-pink.png
+bttCalendarBlue PNG resources\calendar_200x32-blue.png
+bttCalendarPink PNG resources\calendar_200x32-pink.png
+bttCalendarGray PNG resources\calendar_200x32-gray.png
+bttNotificationsBlue PNG resources\recado_90x32-blue.png
+bttNotificationsPink PNG resources\recado_90x32-pink.png
+bttNotificationsGray PNG resources\recado_90x32-gray.png
+bttNotificationsRed PNG resources\recado_90x32-red.png
+bttCompanies PNG resources\logotipo_empresa-200x32.png
+bttMan PNG resources\man_60x32.png
+bttWoman PNG resources\woman_60x32.png
+bttTurnOffBlue PNG resources\turn_off_60x24-blue.png
+bttTurnOffGray PNG resources\turn_off_60x24-gray.png
+bttTurnOffPink PNG resources\turn_off_60x24-pink.png
+// Menus pop-ups
+mnuClients PNG resources\clientes_24.png
+mnuUsers PNG resources\usuarios_24.png
+mnuCompaniesBlue PNG resources\empresas_24-blue.png
+mnuCompaniesGray PNG resources\empresas_24-gray.png
+mnuCompaniesPink PNG resources\empresas_24-pink.png
+mnuSettingsBlue PNG resources\config_24-blue.png
+mnuLogSysBlue PNG resources\logsys_24-blue.png
+mnuAboutBlue PNG resources\question_mark_24-blue.png
+// Botões Forms
+bttSave PNG resources\save_30.png
+bttExit PNG resources\exit_30.png
+bttTurnOnBlue PNG  resources\turn_on-blue.png
+bttTurnOnPink PNG  resources\turn_on-pink.png
+bttTurnOff PNG resources\turn_off.png
+bttAdd PNG resources\add_20.png
+bttEdit PNG resources\pencil_16.png
+bttDelete PNG resources\trash_16.png
+bttBackWard PNG resources\backward.png
+bttForWard PNG resources\forward.png
+bttLeft PNG resources\left.png
+bttRight PNG resources\right.png
+bttFilterOff PNG resources\filter_off_20.png
+bttFilterOn PNG resources\filter_on_20.png
+bttFolderOpen PNG resources\folder_open_21443.png
+bttLock PNG resources\lock_padlock_28.png
+bttUnLock PNG resources\cadeado_aberto_28.png
+bttSpyPswBlue PNG resources\eye_transp_24-blue.png
+bttSpyPswGray PNG resources\eye_transp_24-gray.png
+bttSpyPswPink PNG resources\eye_transp_24-pink.png
+bttExcel PNG resources\microsoft-excel-2019-28.png
+// Imagens Forms
+imgLogoPrincipal JPG resources\logo_principal.jpg
+imgLogin PNG resources\login_64.png
+imgUser PNG resources\user_28.png
+imgLock PNG resources\closed_padlock_28.png
+imgOpenPadlock PNG resources\open_padlock_28.png
+imgConnecting BITMAP resources\db_connecting_48.bmp
+imgConnected BITMAP resources\db_connected_48.bmp
+imgConnectionError BITMAP resources\db_connection_error_48.bmp
+// Notificações
+imgInBox PNG resources\inbox_16.png
+imgEmailSend PNG resources\email_send.png
+imgEmailNew PNG resources\email_new.png
+imgEmailDelete PNG resources\email_delete.png
+imgInput PNG resources\input.png
+imgSent PNG resources\email_send_16.png
+imgArchive PNG resources\arquivar.png
+imgArchived PNG resources\arquivado.png
+imgOptions PNG resources\opcoes.png
+imgEmailRead PNG resources\lido16.png
+imgUnReadEmail PNG resources\nao_lido.png
+imgClose PNG resources\fechar_p.png
+imgEmailSend30 PNG resources\email_send_30.png
+bttCancel PNG resources\cancel_30.png
+imgMove PNG resources\desarquivar.png
+
+hdUp PNG resources\up.png
+hdDown PNG resources\down.png

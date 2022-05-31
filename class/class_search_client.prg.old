@@ -1,0 +1,54 @@
+/**********************************************************************************
+ Programa: SistromEDI - Sistema de EDI (Electronic Data Interchange) padrão PROCEDA
+ By Nilton Gonçalves Medeiros - 11-Nov-2021
+ Todos os direitos reservados: SISTROM SITEMAS WEB LTDA
+
+ Arquivo: class_search_client.prg
+ Classe: TSearchClient - Classe de Pesquisa de Clientes aos formulários
+***********************************************************************************/
+
+#include <hmg.ch>
+#include 'hbclass.ch'
+
+class TSearchClient
+
+    data form readonly
+    data search readonly
+    data id readonly
+    data razao_social readonly
+    data setfocus readonly
+    data query readonly
+    data error readonly
+    data isOk readonly
+    data error readonly
+
+    method new(sql) constructor
+    method destroy()
+
+end class
+
+method new(sql, form_data) class TSearchClient
+    local form_index := GetLastActiveFormIndex()
+
+    if form_index > 0 .and. ValType(form_data) == 'H'
+        ::form := hb_HGetDef(form_data, 'form', '')
+        ::search := hb_HGetDef(form_data, 'search', '')
+        ::id := hb_HGetDef(form_data, 'id', '')
+        ::razao_social := hb_HGetDef(form_data, 'razao_social', '')
+        ::setfocus := hb_HGetDef(form_data, 'setfocus', '')
+        ::query := TSQLQuery():new(sql)
+        ::isOk := ::query:isExecuted()
+    else
+        ::isOk := false
+    endif
+
+    do case
+        case form_index < 1
+            ::error := 'Form não está ativo ou não existe'
+        case ! ValType(form_data) == 'H'
+            ::error := 'Erro no parâmetro form_data, não é um HASH'
+        case ! ::isOk
+            ::error := 'A Query não foi executada'
+    endcase
+
+return self

@@ -1,0 +1,482 @@
+* HMG-IDE UNICODE Form Designer Generated Code
+* (c) Roberto Lopez - http://sites.google.com/site/hmgweb
+
+DEFINE WINDOW TEMPLATE AT 143 , 294 WIDTH 1300 HEIGHT 555 VIRTUAL WIDTH Nil VIRTUAL HEIGHT Nil TITLE "Lista de Empresas" ICON NIL CHILD NOMAXIMIZE NOSIZE CURSOR NIL ON INIT companies_list_form_on_init() ON RELEASE Nil
+
+    DEFINE STATUSBAR FONT "Open Sans" SIZE 9
+        STATUSITEM "Status" TOOLTIP "Mostra a última operação executada até o momento" FLAT
+    END STATUSBAR
+
+    DEFINE BUTTON btn_new
+        ROW    10
+        COL    5
+        WIDTH  110
+        HEIGHT 35
+        ACTION companies_list_button_new_action()
+        CAPTION "&Novo"
+        FONTNAME "Open Sans"
+        FONTSIZE 9
+        TOOLTIP ""
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        ONGOTFOCUS Nil
+        ONLOSTFOCUS Nil
+        HELPID Nil
+        FLAT .F.
+        TABSTOP .T.
+        VISIBLE .T.
+        TRANSPARENT .T.
+        MULTILINE .F.
+        PICTURE "bttAdd"
+        PICTALIGNMENT LEFT
+    END BUTTON
+
+    DEFINE BUTTON button_edit
+        ROW    10
+        COL    120
+        WIDTH  110
+        HEIGHT 35
+        ACTION companies_list_button_edit_action()
+        CAPTION "&Editar"
+        FONTNAME "Open Sans"
+        FONTSIZE 9
+        TOOLTIP ""
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        ONGOTFOCUS Nil
+        ONLOSTFOCUS Nil
+        HELPID Nil
+        FLAT .F.
+        TABSTOP .T.
+        VISIBLE .T.
+        TRANSPARENT .T.
+        MULTILINE .F.
+        PICTURE "bttEdit"
+        PICTALIGNMENT LEFT
+    END BUTTON
+
+    DEFINE BUTTON button_delete
+        ROW    10
+        COL    235
+        WIDTH  110
+        HEIGHT 35
+        ACTION companies_list_button_delete_action()
+        CAPTION "E&xcluir"
+        FONTNAME "Open Sans"
+        FONTSIZE 9
+        TOOLTIP ""
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        ONGOTFOCUS Nil
+        ONLOSTFOCUS Nil
+        HELPID Nil
+        FLAT .F.
+        TABSTOP .T.
+        VISIBLE .T.
+        TRANSPARENT .T.
+        MULTILINE .F.
+        PICTURE "bttDelete"
+        PICTALIGNMENT LEFT
+    END BUTTON
+
+    DEFINE TEXTBOX text_search
+        ROW    17
+        COL    350
+        WIDTH  350
+        HEIGHT 25
+        FONTNAME "Open Sans"
+        FONTSIZE 11
+        TOOLTIP "Pesquise em vários campos digitando aqui"
+        ONCHANGE Nil
+        ONGOTFOCUS textbox_on_goto_focus("companies_list", "text_search")
+        ONLOSTFOCUS textbox_on_lost_focus("companies_list", "text_search")
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        ONENTER Nil
+        HELPID Nil
+        TABSTOP .T.
+        VISIBLE .T.
+        READONLY .F.
+        RIGHTALIGN .F.
+        DISABLEDBACKCOLOR Nil
+        DISABLEDFONTCOLOR Nil
+        CASECONVERT UPPER
+        MAXLENGTH 60
+        BACKCOLOR NIL
+        FONTCOLOR NIL
+        INPUTMASK Nil
+        FORMAT Nil
+        VALUE ""
+    END TEXTBOX
+
+    DEFINE CHECKBUTTON checkbutton_search
+        ROW    10
+        COL    705
+        WIDTH  35
+        HEIGHT 35
+        CAPTION ""
+        VALUE .F.
+        FONTNAME "Open Sans"
+        FONTSIZE 9
+        TOOLTIP "Clique aqui para pesquisar"
+        ONCHANGE companies_list_checkbutton_search_on_change()
+        ONGOTFOCUS Nil
+        ONLOSTFOCUS Nil
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        HELPID Nil
+        TABSTOP .T.
+        VISIBLE .T.
+        PICTURE "bttFilterOn"
+    END CHECKBUTTON
+
+    DEFINE BUTTON button_exit
+        ROW    10
+        COL    750
+        WIDTH  110
+        HEIGHT 35
+        ACTION companies_list.RELEASE
+        CAPTION "&Fechar"
+        FONTNAME "Open Sans"
+        FONTSIZE 9
+        TOOLTIP ""
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        ONGOTFOCUS Nil
+        ONLOSTFOCUS Nil
+        HELPID Nil
+        FLAT .F.
+        TABSTOP .T.
+        VISIBLE .T.
+        TRANSPARENT .T.
+        MULTILINE .F.
+        PICTURE "bttExit"
+        PICTALIGNMENT LEFT
+    END BUTTON
+
+    DEFINE GRID grid_companies_list
+        ROW    60
+        COL    7
+        WIDTH  1270
+        HEIGHT 365
+        ITEMS Nil
+        VALUE Nil
+        WIDTHS { 100, 300, 240, 120, 140, 120, 450, 130, 130, 200, 150, 100, 150, 150, 150, 150, 100 }
+        HEADERS {'id#','Razão Social','Nome Fantasia','SIGLA','CNPJ','I.E.','Endereço','Telefone #1','Telefone #2','EMail Comercial','EMail Contabil','Status','Cadastrado Por','Cadastrado Em','Alterado Por','Alterado Em','Alterações'}
+        FONTNAME "Open Sans"
+        FONTSIZE 9
+        TOOLTIP "Duplo Clique para ver detalhes"
+        ONCHANGE Nil
+        ONGOTFOCUS Nil
+        ONLOSTFOCUS Nil
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        ONDBLCLICK grid_companies_list_on_dblclick()
+        ONHEADCLICK {{||grid_companies_list_id_on_headclick()},{||grid_companies_list_razaoSocial_on_headclick()},{||grid_companies_list_nomeFantasia_on_headclick()},{||grid_companies_list_cnpj_on_headclick()}}
+        ONQUERYDATA Nil
+        MULTISELECT .F.
+        ALLOWEDIT .F.
+        VIRTUAL .F.
+        DYNAMICBACKCOLOR {pEmp_bBackColor,pEmp_bBackColor,pEmp_bBackColor,pEmp_bBackColor,pEmp_bBackColor,pEmp_bBackColor,pEmp_bBackColor,pEmp_bBackColor,pEmp_bBackColor,pEmp_bBackColor,pEmp_bBackColor,pEmp_bBackColor,pEmp_bBackColor,pEmp_bBackColor,pEmp_bBackColor,pEmp_bBackColor,pEmp_bBackColor}
+        DYNAMICFORECOLOR Nil
+        COLUMNWHEN Nil
+        COLUMNVALID Nil
+        COLUMNCONTROLS {{ "TEXTBOX","NUMERIC" },{ "TEXTBOX","CHARACTER" },{ "TEXTBOX","CHARACTER" },{ "TEXTBOX","CHARACTER" },{ "TEXTBOX","CHARACTER" },{ "TEXTBOX","CHARACTER" },{ "TEXTBOX","CHARACTER" },{ "TEXTBOX","CHARACTER" },{ "TEXTBOX","CHARACTER" },{ "TEXTBOX","CHARACTER" },{ "TEXTBOX","CHARACTER" },{ "TEXTBOX","CHARACTER" },{ "TEXTBOX","CHARACTER" },{ "TEXTBOX","CHARACTER" },{ "TEXTBOX","CHARACTER" },{ "TEXTBOX","CHARACTER" },{ "TEXTBOX","NUMERIC", "@E 99,999,999" }}
+        SHOWHEADERS .T.
+        CELLNAVIGATION .F.
+        NOLINES .F.
+        HELPID Nil
+        IMAGE Nil
+        JUSTIFY {GRID_JTFY_RIGHT,GRID_JTFY_LEFT,GRID_JTFY_LEFT,GRID_JTFY_CENTER,GRID_JTFY_CENTER,GRID_JTFY_CENTER,GRID_JTFY_LEFT,GRID_JTFY_CENTER,GRID_JTFY_CENTER,GRID_JTFY_LEFT,GRID_JTFY_LEFT,GRID_JTFY_CENTER,GRID_JTFY_LEFT,GRID_JTFY_CENTER,GRID_JTFY_LEFT,GRID_JTFY_CENTER,GRID_JTFY_RIGHT}
+        ITEMCOUNT Nil
+        BACKCOLOR Nil
+        FONTCOLOR Nil
+        HEADERIMAGES Nil
+        ROWSOURCE Nil
+        COLUMNFIELDS Nil
+        ALLOWAPPEND .F.
+        ALLOWDELETE .F.
+        BUFFERED .F.
+        DYNAMICDISPLAY Nil
+        ONSAVE Nil
+        LOCKCOLUMNS 1
+    END GRID
+
+    DEFINE FRAME frame_1
+        ROW    435
+        COL    5
+        WIDTH  258
+        HEIGHT 50
+        FONTNAME "Open Sans"
+        FONTSIZE 9
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        CAPTION "Páginas"
+        BACKCOLOR NIL
+        FONTCOLOR NIL
+        OPAQUE .T.
+    END FRAME
+
+    DEFINE BUTTON button_first_page
+        ROW    455
+        COL    13
+        WIDTH  25
+        HEIGHT 25
+        ACTION companies_list_button_front_page_action()
+        CAPTION Nil
+        FONTNAME "Open Sans"
+        FONTSIZE 9
+        TOOLTIP "Primeira Página"
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        ONGOTFOCUS Nil
+        ONLOSTFOCUS Nil
+        HELPID Nil
+        FLAT .T.
+        TABSTOP .F.
+        VISIBLE .T.
+        TRANSPARENT .T.
+        MULTILINE .F.
+        PICTURE "bttBackWard"
+        PICTALIGNMENT LEFT
+    END BUTTON
+
+    DEFINE BUTTON button_previous_page
+        ROW    455
+        COL    43
+        WIDTH  25
+        HEIGHT 25
+        ACTION companies_list_button_previous_page_action()
+        CAPTION Nil
+        FONTNAME "Open Sans"
+        FONTSIZE 9
+        TOOLTIP "Página Anterior"
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        ONGOTFOCUS Nil
+        ONLOSTFOCUS Nil
+        HELPID Nil
+        FLAT .T.
+        TABSTOP .F.
+        VISIBLE .T.
+        TRANSPARENT .T.
+        MULTILINE .F.
+        PICTURE "bttLeft"
+        PICTALIGNMENT TOP
+    END BUTTON
+
+    DEFINE TEXTBOX text_page
+        ROW    456
+        COL    79
+        WIDTH  45
+        HEIGHT 23
+        FONTNAME "Open Sans"
+        FONTSIZE 9
+        TOOLTIP "Ir para página desejada"
+        ONCHANGE Nil
+        ONGOTFOCUS Nil
+        ONLOSTFOCUS Nil
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        ONENTER companies_list_text_page_on_enter()
+        HELPID Nil
+        TABSTOP .F.
+        VISIBLE .T.
+        READONLY .F.
+        RIGHTALIGN .T.
+        DISABLEDBACKCOLOR Nil
+        DISABLEDFONTCOLOR Nil
+        CASECONVERT NONE
+        MAXLENGTH 3
+        BACKCOLOR NIL
+        FONTCOLOR NIL
+        INPUTMASK "999"
+        FORMAT Nil
+        NUMERIC .T.
+        VALUE 1
+    END TEXTBOX
+
+    DEFINE LABEL label_number_of_pages
+        ROW    460
+        COL    130
+        WIDTH  60
+        HEIGHT 18
+        VALUE "de 1"
+        FONTNAME "Open Sans"
+        FONTSIZE 9
+        TOOLTIP ""
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        HELPID Nil
+        VISIBLE .T.
+        TRANSPARENT .F.
+        ACTION Nil
+        AUTOSIZE .F.
+        BACKCOLOR NIL
+        FONTCOLOR NIL
+    END LABEL
+
+    DEFINE BUTTON button_next_page
+        ROW    455
+        COL    201
+        WIDTH  25
+        HEIGHT 25
+        ACTION companies_list_button_next_page_action()
+        CAPTION Nil
+        FONTNAME "Open Sans"
+        FONTSIZE 9
+        TOOLTIP "Próxima página"
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        ONGOTFOCUS Nil
+        ONLOSTFOCUS Nil
+        HELPID Nil
+        FLAT .T.
+        TABSTOP .F.
+        VISIBLE .T.
+        TRANSPARENT .T.
+        MULTILINE .F.
+        PICTURE "bttRight"
+        PICTALIGNMENT TOP
+    END BUTTON
+
+    DEFINE BUTTON button_last_page
+        ROW    455
+        COL    231
+        WIDTH  25
+        HEIGHT 25
+        ACTION companies_list_button_last_page_action()
+        CAPTION Nil
+        FONTNAME "Open Sans"
+        FONTSIZE 9
+        TOOLTIP "Última página"
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        ONGOTFOCUS Nil
+        ONLOSTFOCUS Nil
+        HELPID Nil
+        FLAT .T.
+        TABSTOP .F.
+        VISIBLE .T.
+        TRANSPARENT .T.
+        MULTILINE .F.
+        PICTURE "bttForWard"
+        PICTALIGNMENT TOP
+    END BUTTON
+
+    DEFINE FRAME frame_2
+        ROW    435
+        COL    280
+        WIDTH  140
+        HEIGHT 50
+        FONTNAME "Open Sans"
+        FONTSIZE 9
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        CAPTION "Registros por página"
+        BACKCOLOR NIL
+        FONTCOLOR NIL
+        OPAQUE .T.
+    END FRAME
+
+    DEFINE COMBOBOX combobox_rows_per_page
+        ROW    455
+        COL    300
+        WIDTH  100
+        HEIGHT 100
+        ITEMS {'300', '400', '500', '700', '800', '900', '1000'}
+        VALUE 1
+        FONTNAME "Open Sans"
+        FONTSIZE 9
+        TOOLTIP ""
+        ONCHANGE companies_list_combobox_rows_per_page_on_change()
+        ONGOTFOCUS Nil
+        ONLOSTFOCUS Nil
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        HELPID Nil
+        TABSTOP .F.
+        VISIBLE .T.
+        SORT .F.
+        ONENTER Nil
+        ONDISPLAYCHANGE Nil
+        DISPLAYEDIT .F.
+        IMAGE Nil
+        DROPPEDWIDTH 0
+        ONDROPDOWN Nil
+        ONCLOSEUP Nil
+    END COMBOBOX
+
+    DEFINE FRAME frame_3
+        ROW    435
+        COL    430
+        WIDTH  120
+        HEIGHT 50
+        FONTNAME "Open Sans"
+        FONTSIZE 9
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        CAPTION "Total de Registros"
+        BACKCOLOR NIL
+        FONTCOLOR NIL
+        OPAQUE .T.
+    END FRAME
+
+    DEFINE LABEL label_TotReg
+        ROW    460
+        COL    453
+        WIDTH  70
+        HEIGHT 18
+        VALUE "0"
+        FONTNAME "Open Sans"
+        FONTSIZE 9
+        TOOLTIP ""
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        HELPID Nil
+        VISIBLE .T.
+        TRANSPARENT .F.
+        ACTION Nil
+        AUTOSIZE .F.
+        BACKCOLOR NIL
+        FONTCOLOR NIL
+        CENTERALIGN .T.
+    END LABEL
+
+END WINDOW

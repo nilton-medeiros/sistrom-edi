@@ -1,0 +1,95 @@
+* HMG-IDE UNICODE Form Designer Generated Code
+* (c) Roberto Lopez - http://sites.google.com/site/hmgweb
+
+DEFINE WINDOW TEMPLATE AT 141 , 333 WIDTH 775 HEIGHT 396 VIRTUAL WIDTH Nil VIRTUAL HEIGHT Nil TITLE "Pesquisa Cliente" ICON NIL MODAL NOSIZE NOSYSMENU CURSOR NIL ON INIT search_client_form_on_init() ON RELEASE search_client_form_on_release()
+
+    DEFINE FRAME frame_search
+        ROW    10
+        COL    10
+        WIDTH  740
+        HEIGHT 330
+        FONTNAME "Open Sans"
+        FONTSIZE 9
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        CAPTION "Ocorrências: Pesquisa de cliente"
+        BACKCOLOR NIL
+        FONTCOLOR NIL
+        OPAQUE .T.
+    END FRAME
+
+    DEFINE LABEL label_many_clients
+        ROW    40
+        COL    20
+        WIDTH  400
+        HEIGHT 24
+        VALUE "A pesquisa retornou x clientes, escolha um deles:"
+        FONTNAME "Open Sans"
+        FONTSIZE 10
+        TOOLTIP ""
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        HELPID Nil
+        VISIBLE .F.
+        TRANSPARENT .F.
+        ACTION Nil
+        AUTOSIZE .T.
+        BACKCOLOR NIL
+        FONTCOLOR NIL
+    END LABEL
+
+    DEFINE GRID grid_search_client
+        ROW    70
+        COL    20
+        WIDTH  711
+        HEIGHT 253
+        ITEMS Nil
+        VALUE Nil
+        WIDTHS {70, 250, 120, 115, 115}
+        HEADERS {'id#', 'Razão Social', 'Nome Fantasia', 'CNPJ', 'Telefone'}
+        FONTNAME "Open Sans"
+        FONTSIZE 9
+        TOOLTIP "Duplo clique para Selecionar ou ESC para Sair"
+        ONCHANGE Nil
+        ONGOTFOCUS Nil
+        ONLOSTFOCUS Nil
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        ONDBLCLICK grid_search_client_on_dblclick()
+        ONHEADCLICK Nil
+        ONQUERYDATA Nil
+        MULTISELECT .F.
+        ALLOWEDIT .F.
+        VIRTUAL .F.
+        DYNAMICBACKCOLOR Nil
+        DYNAMICFORECOLOR Nil
+        COLUMNWHEN Nil
+        COLUMNVALID Nil
+        COLUMNCONTROLS {{"TEXTBOX", "NUMERIC", "@E 999,999,999"}, {"TEXTBOX", "CHARACTER"}, {"TEXTBOX", "CHARACTER"}, {"TEXTBOX", "CHARACTER"}, {"TEXTBOX", "CHARACTER"}}
+        SHOWHEADERS .T.
+        CELLNAVIGATION .F.
+        NOLINES .F.
+        HELPID Nil
+        IMAGE Nil
+        JUSTIFY {GRID_JTFY_RIGHT, GRID_JTFY_LEFT, GRID_JTFY_LEFT, GRID_JTFY_CENTER, GRID_JTFY_RIGHT}
+        ITEMCOUNT Nil
+        BACKCOLOR NIL
+        FONTCOLOR NIL
+        HEADERIMAGES Nil
+        ROWSOURCE Nil
+        COLUMNFIELDS Nil
+        ALLOWAPPEND .F.
+        ALLOWDELETE .F.
+        BUFFERED .F.
+        DYNAMICDISPLAY Nil
+        ONSAVE Nil
+        LOCKCOLUMNS 1
+    END GRID
+
+END WINDOW

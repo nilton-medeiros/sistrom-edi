@@ -1,0 +1,196 @@
+* HMG-IDE UNICODE Form Designer Generated Code
+* (c) Roberto Lopez - http://sites.google.com/site/hmgweb
+
+DEFINE WINDOW TEMPLATE AT 142 , 306 WIDTH 628 HEIGHT 289 VIRTUAL WIDTH Nil VIRTUAL HEIGHT Nil TITLE "Configurações" ICON NIL CHILD TOPMOST NOMAXIMIZE NOMINIMIZE NOSIZE NOSYSMENU CURSOR NIL ON INIT settings_form_on_init() ON RELEASE Nil 
+
+    DEFINE STATUSBAR FONT "Open Sans" SIZE 9
+        STATUSITEM "Status" TOOLTIP "Mostra a última operação executada até o momento" FLAT
+    END STATUSBAR
+
+    DEFINE BUTTON Button_Fechar
+        ROW    170
+        COL    480
+        WIDTH  120
+        HEIGHT 35
+        ACTION settings.Release
+        CAPTION "&Fechar"
+        FONTNAME "Open Sans"
+        FONTSIZE 9
+        TOOLTIP ""
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        ONGOTFOCUS Nil
+        ONLOSTFOCUS Nil
+        HELPID Nil
+        FLAT .F.
+        TABSTOP .T.
+        VISIBLE .T.
+        TRANSPARENT .T.
+        MULTILINE .F.
+        PICTURE "bttExit"
+        PICTALIGNMENT LEFT
+    END BUTTON
+
+    DEFINE BUTTON Button_Aplicar
+        ROW    170
+        COL    350
+        WIDTH  120
+        HEIGHT 35
+        ACTION settings_button_aplicar_action()
+        CAPTION "&Aplicar"
+        FONTNAME "Open Sans"
+        FONTSIZE 9
+        TOOLTIP ""
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        ONGOTFOCUS Nil
+        ONLOSTFOCUS Nil
+        HELPID Nil
+        FLAT .F.
+        TABSTOP .T.
+        VISIBLE .T.
+        TRANSPARENT .T.
+        MULTILINE .F.
+        PICTURE "bttSave"
+        PICTALIGNMENT LEFT
+    END BUTTON
+
+    DEFINE FRAME Frame_1
+        ROW    10
+        COL    20
+        WIDTH  310
+        HEIGHT 130
+        FONTNAME "Arial"
+        FONTSIZE 9
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        CAPTION "Avatar"
+        BACKCOLOR NIL
+        FONTCOLOR NIL
+        OPAQUE .T.
+    END FRAME
+
+    DEFINE RADIOGROUP radio_avatar
+        ROW    45
+        COL    30
+        WIDTH  100
+        HEIGHT 50
+        OPTIONS { 'Homem','Mulher'}
+        VALUE 1
+        FONTNAME "Arial"
+        FONTSIZE 9
+        TOOLTIP ""
+        ONCHANGE settings_radio_avatar_on_change()
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        HELPID Nil
+        TABSTOP .T.
+        VISIBLE .T.
+        TRANSPARENT .F.
+        SPACING 25
+        BACKCOLOR NIL
+        FONTCOLOR NIL
+        READONLY Nil
+        HORIZONTAL .F.
+    END RADIOGROUP
+
+    DEFINE IMAGE image_avatar
+        ROW    40
+        COL    150
+        WIDTH  140
+        HEIGHT 60
+        PICTURE ""
+        HELPID Nil
+        VISIBLE .T.
+        STRETCH .F.
+        ACTION Nil
+    END IMAGE
+
+    DEFINE FRAME Frame_2
+        ROW    10
+        COL    350
+        WIDTH  250
+        HEIGHT 130
+        FONTNAME "Arial"
+        FONTSIZE 9
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        CAPTION "Cor dos ícones"
+        BACKCOLOR NIL
+        FONTCOLOR NIL
+        OPAQUE .T.
+    END FRAME
+
+    DEFINE IMAGE image_icon1
+        ROW    80
+        COL    370
+        WIDTH  32
+        HEIGHT 32
+        PICTURE ""
+        HELPID Nil
+        VISIBLE .T.
+        STRETCH .F.
+        ACTION Nil
+    END IMAGE
+
+    DEFINE IMAGE image_icon2
+        ROW    80
+        COL    455
+        WIDTH  32
+        HEIGHT 32
+        PICTURE ""
+        HELPID Nil
+        VISIBLE .T.
+        STRETCH .T.
+        ACTION Nil
+    END IMAGE
+
+    DEFINE RADIOGROUP radio_icon_colors
+        ROW    40
+        COL    370
+        WIDTH  210
+        HEIGHT 28
+        OPTIONS { 'Gray','Pink','Blue'}
+        VALUE 1
+        FONTNAME "Arial"
+        FONTSIZE 9
+        TOOLTIP ""
+        ONCHANGE settings_radio_icon_colors_on_change()
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        HELPID Nil
+        TABSTOP .T.
+        VISIBLE .T.
+        TRANSPARENT .F.
+        SPACING 80
+        BACKCOLOR NIL
+        FONTCOLOR NIL
+        READONLY Nil
+        HORIZONTAL .T.
+    END RADIOGROUP
+
+    DEFINE IMAGE image_icon3
+        ROW    80
+        COL    535
+        WIDTH  32
+        HEIGHT 32
+        PICTURE ""
+        HELPID Nil
+        VISIBLE .T.
+        STRETCH .F.
+        ACTION Nil
+    END IMAGE
+
+END WINDOW

@@ -1,0 +1,396 @@
+* HMG-IDE UNICODE Form Designer Generated Code
+* (c) Roberto Lopez - http://sites.google.com/site/hmgweb
+
+DEFINE WINDOW TEMPLATE AT 144 , 302 WIDTH 364 HEIGHT 438 VIRTUAL WIDTH Nil VIRTUAL HEIGHT Nil TITLE "Acesso Restrito" ICON "LoginManager" MODAL NOSIZE CURSOR NIL ON INIT login_form_on_init() ON RELEASE Nil ON INTERACTIVECLOSE Nil ON MOUSECLICK Nil ON MOUSEDRAG Nil ON MOUSEMOVE Nil ON SIZE Nil ON PAINT Nil BACKCOLOR {68,68,68} ON GOTFOCUS Nil ON LOSTFOCUS Nil ON SCROLLUP Nil ON SCROLLDOWN Nil ON SCROLLLEFT Nil ON SCROLLRIGHT Nil ON HSCROLLBOX Nil ON VSCROLLBOX Nil
+
+    DEFINE TEXTBOX TextBox_Usuario
+        ROW    115
+        COL    20
+        WIDTH  280
+        HEIGHT 28
+        FONTNAME "Open Sans"
+        FONTSIZE 9
+        TOOLTIP "Digite seu login de acesso e pressione Enter"
+        ONCHANGE Nil
+        ONGOTFOCUS textbox_on_goto_focus("login","TextBox_Usuario")
+        ONLOSTFOCUS textbox_on_lost_focus("login","TextBox_Usuario")
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        ONENTER login_textbox_usuario_on_enter()
+        HELPID Nil
+        TABSTOP .T.
+        VISIBLE .T.
+        READONLY .F.
+        RIGHTALIGN .F.
+        DISABLEDBACKCOLOR Nil
+        DISABLEDFONTCOLOR Nil
+        CASECONVERT NONE
+        MAXLENGTH 45
+        BACKCOLOR NIL
+        FONTCOLOR NIL
+        INPUTMASK Nil
+        FORMAT Nil
+        VALUE ""
+    END TEXTBOX
+
+    DEFINE TEXTBOX TextBox_Senha
+        ROW    175
+        COL    20
+        WIDTH  280
+        HEIGHT 28
+        FONTNAME "Open Sans"
+        FONTSIZE 9
+        TOOLTIP "Digite sua senha cadastrada no TMS.Cloud em Servidor Web e pressione Enter"
+        ONCHANGE Nil
+        ONGOTFOCUS textbox_on_goto_focus("login","TextBox_Senha")
+        ONLOSTFOCUS textbox_on_lost_focus("login","TextBox_Senha")
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        ONENTER Nil
+        HELPID Nil
+        TABSTOP .T.
+        VISIBLE .T.
+        READONLY .F.
+        RIGHTALIGN .F.
+        DISABLEDBACKCOLOR Nil
+        DISABLEDFONTCOLOR Nil
+        CASECONVERT NONE
+        PASSWORD .T.
+        MAXLENGTH 10
+        BACKCOLOR NIL
+        FONTCOLOR NIL
+        INPUTMASK Nil
+        FORMAT Nil
+        VALUE ""
+    END TEXTBOX
+
+    DEFINE BUTTON button_login
+        ROW    225
+        COL    20
+        WIDTH  110
+        HEIGHT 35
+        ACTION login_button_login_action()
+        CAPTION "&Entrar"
+        FONTNAME "Open Sans"
+        FONTSIZE 9
+        TOOLTIP ""
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        ONGOTFOCUS Nil
+        ONLOSTFOCUS Nil
+        HELPID Nil
+        FLAT .F.
+        TABSTOP .T.
+        VISIBLE .T.
+        TRANSPARENT .F.
+        MULTILINE .F.
+        PICTURE "bttUnLock"
+        PICTALIGNMENT LEFT
+    END BUTTON
+
+    DEFINE BUTTON button_esqueceu_senha
+        ROW    225
+        COL    150
+        WIDTH  150
+        HEIGHT 22
+        ACTION login_button_esqueceu_senha_action()
+        CAPTION "Esqueci minha senha"
+        FONTNAME "Open Sans"
+        FONTSIZE 9
+        TOOLTIP "Clique aqui para receber sua senha por e-mail"
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        ONGOTFOCUS Nil
+        ONLOSTFOCUS Nil
+        HELPID Nil
+        FLAT .F.
+        TABSTOP .F.
+        VISIBLE .T.
+        TRANSPARENT .F.
+        MULTILINE .F.
+        PICTURE Nil
+        PICTALIGNMENT TOP
+    END BUTTON
+
+    DEFINE CHECKBOX checkbox_lembrar_acesso
+        ROW    275
+        COL    20
+        WIDTH  200
+        HEIGHT 28
+        CAPTION "Lembrar meus dados de acesso"
+        VALUE .F.
+        FONTNAME "Open Sans"
+        FONTSIZE 9
+        TOOLTIP ""
+        ONCHANGE Nil
+        ONGOTFOCUS Nil
+        ONLOSTFOCUS Nil
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        BACKCOLOR {68,68,68}
+        FONTCOLOR {255,255,255}
+        HELPID Nil
+        TABSTOP .T.
+        VISIBLE .T.
+        TRANSPARENT .F.
+    END CHECKBOX
+
+    DEFINE IMAGE Image_1
+        ROW    10
+        COL    20
+        WIDTH  64
+        HEIGHT 64
+        PICTURE "ImgLogin"
+        HELPID Nil
+        VISIBLE .T.
+        STRETCH .T.
+        ACTION Nil
+    END IMAGE
+
+    DEFINE LABEL label_1
+        ROW    10
+        COL    110
+        WIDTH  210
+        HEIGHT 25
+        VALUE "SISTROM EDI"
+        FONTNAME "Open Sans"
+        FONTSIZE 16
+        TOOLTIP ""
+        FONTBOLD .T.
+        FONTITALIC .T.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        HELPID Nil
+        VISIBLE .T.
+        TRANSPARENT .F.
+        ACTION Nil
+        AUTOSIZE .F.
+        BACKCOLOR {68,68,68}
+        FONTCOLOR {255,255,255}
+        CENTERALIGN .T. 
+    END LABEL
+
+    DEFINE LABEL label_2
+        ROW    40
+        COL    110
+        WIDTH  205
+        HEIGHT 30
+        VALUE "Sistema de EDI padrão Proceda 3.0A/3.1"
+        FONTNAME "Open Sans"
+        FONTSIZE 9
+        TOOLTIP ""
+        FONTBOLD .F.
+        FONTITALIC .T.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        HELPID Nil
+        VISIBLE .T.
+        TRANSPARENT .F.
+        ACTION Nil
+        AUTOSIZE .F.
+        BACKCOLOR {68,68,68}
+        FONTCOLOR {255,255,255}
+        CENTERALIGN .T. 
+    END LABEL
+
+    DEFINE LABEL label_3
+        ROW    92
+        COL    20
+        WIDTH  60
+        HEIGHT 18
+        VALUE "Usuário:"
+        FONTNAME "Open Sans"
+        FONTSIZE 9
+        TOOLTIP ""
+        FONTBOLD .T.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        HELPID Nil
+        VISIBLE .T.
+        TRANSPARENT .F.
+        ACTION Nil
+        AUTOSIZE .F.
+        BACKCOLOR {68,68,68}
+        FONTCOLOR {255,255,255}
+    END LABEL
+
+    DEFINE IMAGE Image_2
+        ROW    115
+        COL    305
+        WIDTH  28
+        HEIGHT 28
+        PICTURE "imgUser"
+        HELPID Nil
+        VISIBLE .T.
+        STRETCH .F.
+        ACTION login_image_2_action()
+    END IMAGE
+
+    DEFINE LABEL label_4
+        ROW    153
+        COL    20
+        WIDTH  60
+        HEIGHT 18
+        VALUE "Senha:"
+        FONTNAME "Open Sans"
+        FONTSIZE 9
+        TOOLTIP ""
+        FONTBOLD .T.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        HELPID Nil
+        VISIBLE .T.
+        TRANSPARENT .F.
+        ACTION Nil
+        AUTOSIZE .F.
+        BACKCOLOR {68,68,68}
+        FONTCOLOR {255,255,255}
+    END LABEL
+
+    DEFINE IMAGE Image_3
+        ROW    175
+        COL    305
+        WIDTH  28
+        HEIGHT 28
+        PICTURE "imgLock"
+        HELPID Nil
+        VISIBLE .T.
+        STRETCH .F.
+        ACTION login_image_3_action()
+    END IMAGE
+
+    DEFINE FRAME frame_1
+        ROW    311
+        COL    10
+        WIDTH  340
+        HEIGHT 80
+        FONTNAME "Open Sans"
+        FONTSIZE 9
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        CAPTION "Conexão com servidor web"
+        BACKCOLOR {68,68,68}
+        FONTCOLOR {255,255,255}
+        OPAQUE .T.
+    END FRAME
+
+    DEFINE LABEL label_6
+        ROW    342
+        COL    11
+        WIDTH  133
+        HEIGHT 18
+        VALUE "Servidor (host)"
+        FONTNAME "Open Sans"
+        FONTSIZE 9
+        TOOLTIP ""
+        FONTBOLD .T.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        HELPID Nil
+        VISIBLE .T.
+        TRANSPARENT .F.
+        ACTION Nil
+        AUTOSIZE .F.
+        BACKCOLOR {68,68,68}
+        FONTCOLOR {255,255,255}
+        RIGHTALIGN .T. 
+    END LABEL
+
+    DEFINE LABEL lb_Status
+        ROW    342
+        COL    159
+        WIDTH  118
+        HEIGHT 18
+        VALUE "Aguarde!"
+        FONTNAME "Open Sans"
+        FONTSIZE 10
+        TOOLTIP ""
+        FONTBOLD .T.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        HELPID Nil
+        VISIBLE .T.
+        TRANSPARENT .F.
+        ACTION Nil
+        AUTOSIZE .F.
+        BACKCOLOR {68,68,68}
+        FONTCOLOR {255,255,0}
+        CENTERALIGN .T. 
+    END LABEL
+
+    DEFINE LABEL label_7
+        ROW    364
+        COL    11
+        WIDTH  133
+        HEIGHT 18
+        VALUE "Bando de dados"
+        FONTNAME "Open Sans"
+        FONTSIZE 9
+        TOOLTIP ""
+        FONTBOLD .T.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        HELPID Nil
+        VISIBLE .T.
+        TRANSPARENT .F.
+        ACTION Nil
+        AUTOSIZE .F.
+        BACKCOLOR {68,68,68}
+        FONTCOLOR {255,255,255}
+        RIGHTALIGN .T. 
+    END LABEL
+
+    DEFINE LABEL lb_BancoDados
+        ROW    364
+        COL    159
+        WIDTH  118
+        HEIGHT 18
+        VALUE "Conectando..."
+        FONTNAME "Open Sans"
+        FONTSIZE 9
+        TOOLTIP ""
+        FONTBOLD .T.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        HELPID Nil
+        VISIBLE .T.
+        TRANSPARENT .F.
+        ACTION Nil
+        AUTOSIZE .F.
+        BACKCOLOR {68,68,68}
+        FONTCOLOR {0,255,0}
+        CENTERALIGN .T. 
+    END LABEL
+
+    DEFINE IMAGE iLedBD
+        ROW    342
+        COL    290
+        WIDTH  42
+        HEIGHT 42
+        PICTURE "imgConnecting"
+        HELPID Nil
+        VISIBLE .T.
+        STRETCH .F.
+        ACTION login_iledbd_action()
+    END IMAGE
+
+END WINDOW
+

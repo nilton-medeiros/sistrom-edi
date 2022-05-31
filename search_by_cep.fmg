@@ -1,0 +1,95 @@
+* HMG-IDE UNICODE Form Designer Generated Code
+* (c) Roberto Lopez - http://sites.google.com/site/hmgweb
+
+DEFINE WINDOW TEMPLATE AT 141 , 296 WIDTH 990 HEIGHT 410 VIRTUAL WIDTH Nil VIRTUAL HEIGHT Nil TITLE "Pesquisa CEP" ICON Nil MODAL NOSIZE NOSYSMENU CURSOR Nil ON INIT search_by_cep_form_on_init() ON RELEASE Nil 
+
+    DEFINE FRAME frame_pesquisa
+        ROW    10
+        COL    10
+        WIDTH  950
+        HEIGHT 330
+        FONTNAME "Open Sans"
+        FONTSIZE 9
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        CAPTION "Pesquisa de CEP"
+        BACKCOLOR Nil
+        FONTCOLOR Nil
+        OPAQUE .T.
+    END FRAME
+
+    DEFINE LABEL label_informa_ocorrencias
+        ROW    40
+        COL    20
+        WIDTH  400
+        HEIGHT 24
+        VALUE "A pesquisa retornou x ocorrências, escolha uma delas:"
+        FONTNAME "Open Sans"
+        FONTSIZE 10
+        TOOLTIP ""
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        HELPID Nil
+        VISIBLE .F.
+        TRANSPARENT .F.
+        ACTION Nil
+        AUTOSIZE .T.
+        BACKCOLOR Nil
+        FONTCOLOR Nil
+    END LABEL
+
+    DEFINE GRID grid_enderecos
+        ROW    70
+        COL    20
+        WIDTH  930
+        HEIGHT 253
+        ITEMS Nil
+        VALUE Nil
+        WIDTHS { 80,250,200,175,175,45 }
+        HEADERS {'CEP','Logradouro','Complemento','Bairro','Localidade','UF'}
+        FONTNAME "Open Sans"
+        FONTSIZE 9
+        TOOLTIP "Duplo clique para Selecionar ou ESC para Sair"
+        ONCHANGE Nil
+        ONGOTFOCUS Nil
+        ONLOSTFOCUS Nil
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        ONDBLCLICK grid_enderecos_on_dblclick()
+        ONHEADCLICK Nil
+        ONQUERYDATA Nil
+        MULTISELECT .F.
+        ALLOWEDIT .F.
+        VIRTUAL .F.
+        DYNAMICBACKCOLOR {app:dynamic_back_color,app:dynamic_back_color,app:dynamic_back_color,app:dynamic_back_color,app:dynamic_back_color,app:dynamic_back_color}
+        DYNAMICFORECOLOR Nil
+        COLUMNWHEN Nil
+        COLUMNVALID Nil
+        COLUMNCONTROLS { 'TEXTBOX','TEXTBOX','TEXTBOX','TEXTBOX','TEXTBOX','TEXTBOX' }
+        SHOWHEADERS .T.
+        CELLNAVIGATION .F.
+        NOLINES .F.
+        HELPID Nil
+        IMAGE Nil
+        JUSTIFY { GRID_JTFY_CENTER, GRID_JTFY_LEFT, GRID_JTFY_LEFT, GRID_JTFY_LEFT, GRID_JTFY_LEFT, GRID_JTFY_CENTER }
+        ITEMCOUNT Nil
+        BACKCOLOR Nil
+        FONTCOLOR Nil
+        HEADERIMAGES Nil
+        ROWSOURCE Nil
+        COLUMNFIELDS Nil
+        ALLOWAPPEND .F.
+        ALLOWDELETE .F.
+        BUFFERED .F.
+        DYNAMICDISPLAY Nil
+        ONSAVE Nil
+        LOCKCOLUMNS 1
+    END GRID
+
+END WINDOW

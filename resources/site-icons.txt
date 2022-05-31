@@ -1,0 +1,14 @@
+https://icon-icons.com/icon/document/9126  =>   edi48.ico ... edi128.png
+https://icon-icons.com/icon/cloud-upload/28296 
+https://icon-icons.com/icon/folder-open/19995 => Folder open
+
+Editor icon resize online https://redketchup.io/icon-editor
+
+
+GIMP: cor de frente: Notação HTML:
+	- Blue:  0000ff
+	- Pink:  ee78f0
+	- Gray:  948f94
+	- Green: 00ff00
+	- White: ffffff
+	
