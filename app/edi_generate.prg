@@ -260,7 +260,7 @@ function edi_generate_conemb(cab, edi_date)
         local row, sql
         local c, n
         local qtde_320 := qtde_322 := qtde_cte := valor_cte := 0
-        loca break := false
+        local break := false
 
         ctes := conemb_select_ctes()
 
