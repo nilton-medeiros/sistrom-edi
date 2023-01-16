@@ -26,7 +26,7 @@ procedure Main
           // Definição de variáveis Públicas (Globais)
 
           // Objetos Públicos (Globais)
-          public app := TAppData():New('1.1.0')  // Configurações iniciais
+          public app := TAppData():New('1.1.1')  // Configurações iniciais
 
           // Arrays Públicos
           // Booleans Públicos

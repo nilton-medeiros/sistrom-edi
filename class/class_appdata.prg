@@ -88,72 +88,72 @@ method appRegistry() class TAppData
          hb_DirBuild('edi')
       endif
 
-       if RegistryRead(::rootRegistry + 'DisplayName') == NIL
-          RegistryWrite(::rootRegistry + 'DisplayName', 'Sistrom Sistemas Web')
-       endif
-       if RegistryRead(::rootRegistry + 'SupportUrl') == NIL
-          RegistryWrite(::rootRegistry + 'SupportUrl', ::supportURL)
-       endif
-       if RegistryRead(::pathRegistry + 'Executable') == NIL
-          RegistryWrite(::pathRegistry + 'Executable', ::executable)
-       endif
+      if RegistryRead(::rootRegistry + 'DisplayName') == NIL
+         RegistryWrite(::rootRegistry + 'DisplayName', 'Sistrom Sistemas Web')
+      endif
+      if RegistryRead(::rootRegistry + 'SupportUrl') == NIL
+         RegistryWrite(::rootRegistry + 'SupportUrl', ::supportURL)
+      endif
+      if RegistryRead(::pathRegistry + 'Executable') == NIL
+         RegistryWrite(::pathRegistry + 'Executable', ::executable)
+      endif
 
-       reg_read := RegistryRead(::pathRegistry + 'DisplayName')
+      reg_read := RegistryRead(::pathRegistry + 'DisplayName')
 
-       if reg_read == NIL .or. ! reg_read == ::displayName
-          RegistryWrite(::pathRegistry + 'DisplayName', ::displayName)
-       endif
-       if RegistryRead(::pathRegistry + 'SysArchitecture') == NIL
-          RegistryWrite(::pathRegistry + 'SysArchitecture', '32bit')
-       endif
+      if reg_read == NIL .or. ! reg_read == ::displayName
+         RegistryWrite(::pathRegistry + 'DisplayName', ::displayName)
+      endif
+      if RegistryRead(::pathRegistry + 'SysArchitecture') == NIL
+         RegistryWrite(::pathRegistry + 'SysArchitecture', '32bit')
+      endif
 
-       reg_read := RegistryRead(::pathRegistry + 'Version')
+      reg_read := RegistryRead(::pathRegistry + 'Version')
 
-       if reg_read == NIL .or. ! reg_read == ::version
-          RegistryWrite(::pathRegistry + 'Version', ::version)
-          RegistryWrite(::pathRegistry + 'SysVersion', hb_ULeft(::version, hb_RAt('.', ::version)-1))
-       endif
-       if RegistryRead(::pathRegistry + 'SysVersion') == NIL
-          RegistryWrite(::pathRegistry + 'SysVersion', hb_ULeft(::version, hb_RAt('.', ::version)-1))
-       endif
-       if RegistryRead(::pathRegistry + 'Installation\ComputerName') == NIL
-          RegistryWrite(::pathRegistry + 'Installation\ComputerName', GetComputerName())
-       endif
-       if RegistryRead(::pathRegistry + 'Installation\Path') == NIL
-          RegistryWrite(::pathRegistry + 'Installation\Path', hb_cwd())
-       endif
-       if RegistryRead(::pathRegistry + 'Host\ServerName') == NIL
-        RegistryWrite(::pathRegistry + 'Host\ServerName', '')
-       endif
-       if (RegistryRead(::pathRegistry + 'Host\UserName') == NIL)
-          RegistryWrite(::pathRegistry + 'Host\UserName', '')
-       endif
-       if RegistryRead(::pathRegistry + 'Host\Password') == NIL
-          RegistryWrite(::pathRegistry + 'Host\Password', '')
-       endif
-       if RegistryRead(::pathRegistry + 'Monitoring\Running') == NIL
-          RegistryWrite(::pathRegistry + 'Monitoring\Running', 0)
-       endif
-       if RegistryRead(::pathRegistry + "Monitoring\Don'tRun") == NIL
-          RegistryWrite(::pathRegistry + "Monitoring\Don'tRun", 0)
-       endif
-       // Remover as linhas abaixo após versão 1.0.9
-       if RegistryRead(::pathRegistry + "Registered") == NIL
+      if reg_read == NIL .or. ! reg_read == ::version
+         RegistryWrite(::pathRegistry + 'Version', ::version)
+         RegistryWrite(::pathRegistry + 'SysVersion', hb_ULeft(::version, hb_RAt('.', ::version)-1))
+      endif
+      if RegistryRead(::pathRegistry + 'SysVersion') == NIL
+         RegistryWrite(::pathRegistry + 'SysVersion', hb_ULeft(::version, hb_RAt('.', ::version)-1))
+      endif
+      if RegistryRead(::pathRegistry + 'Installation\ComputerName') == NIL
+         RegistryWrite(::pathRegistry + 'Installation\ComputerName', GetComputerName())
+      endif
+      if RegistryRead(::pathRegistry + 'Installation\Path') == NIL
+         RegistryWrite(::pathRegistry + 'Installation\Path', hb_cwd())
+      endif
+      if RegistryRead(::pathRegistry + 'Host\ServerName') == NIL
+      RegistryWrite(::pathRegistry + 'Host\ServerName', '')
+      endif
+      if (RegistryRead(::pathRegistry + 'Host\UserName') == NIL)
+         RegistryWrite(::pathRegistry + 'Host\UserName', '')
+      endif
+      if RegistryRead(::pathRegistry + 'Host\Password') == NIL
+         RegistryWrite(::pathRegistry + 'Host\Password', '')
+      endif
+      if RegistryRead(::pathRegistry + 'Monitoring\Running') == NIL
+         RegistryWrite(::pathRegistry + 'Monitoring\Running', 0)
+      endif
+      if RegistryRead(::pathRegistry + "Monitoring\Don'tRun") == NIL
+         RegistryWrite(::pathRegistry + "Monitoring\Don'tRun", 0)
+      endif
+      // Remover as linhas abaixo após versão 1.0.9
+      if RegistryRead(::pathRegistry + "Registered") == NIL
          RegistryWrite(::pathRegistry + "Registered", 'LW LOGÍSTICA')
       endif
 
-       if ::isRunning()
-          saveLog('O sistema nao foi desligado corretamente da ultima vez')
-       else
-          RegistryWrite(::pathRegistry + 'Monitoring\Running', 1)
-       endif
+      if ::isRunning()
+         saveLog('O sistema nao foi desligado corretamente da ultima vez')
+      else
+         RegistryWrite(::pathRegistry + 'Monitoring\Running', 1)
+      endif
 
-       AEval(Directory('log\*.*'),  {|aFile| iif(aFile[3] <= (Date()-70), hb_FileDelete("log\"+aFile[1]), NIL)})
-       AEval(Directory('tmp\*.*'),  {|aFile| iif(aFile[3] <= (Date()-10), hb_FileDelete("tmp\"+aFile[1]), NIL)})
-       AEval(Directory('ftp*.txt'), {|aFile| iif(aFile[3] <= (Date()-10), hb_FileDelete(aFile[1]), NIL)})
-       AEval(Directory('ftp*.log'), {|aFile| iif(aFile[3] <= (Date()-10), hb_FileDelete(aFile[1]), NIL)})
+      AEval(Directory('log\*.*'),  {|aFile| iif(aFile[3] <= (Date()-70), hb_FileDelete("log\"+aFile[1]), NIL)})
+      AEval(Directory('tmp\*.*'),  {|aFile| iif(aFile[3] <= (Date()-10), hb_FileDelete("tmp\"+aFile[1]), NIL)})
+      AEval(Directory('ftp*.txt'), {|aFile| iif(aFile[3] <= (Date()-10), hb_FileDelete(aFile[1]), NIL)})
+      AEval(Directory('ftp*.log'), {|aFile| iif(aFile[3] <= (Date()-10), hb_FileDelete(aFile[1]), NIL)})
 
-       saveLog(::displayName + ' - Sistema iniciado')
+      saveLog(::displayName + ' - Sistema iniciado')
 
 return NIL
 

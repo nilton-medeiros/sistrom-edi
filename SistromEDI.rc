@@ -1,5 +1,5 @@
 1 VERSIONINFO
-  FILEVERSION 1,1,00
+  FILEVERSION 1,1,10
  {
     BLOCK "StringFileInfo"
     {
@@ -10,7 +10,7 @@
             VALUE "LegalCopyright"   , "Copyright (c) Sistrom Web"
             VALUE "OriginalFilename" , "SistromEDI.exe"
             VALUE "ProductName"      , "Sistrom EDI"
-            VALUE "ProductVersion"   , "1.1.00.Hb.MS"
+            VALUE "ProductVersion"   , "1.1.10.Hb.MS"
         }
     }
     BLOCK "VarFileInfo"
