@@ -23,10 +23,11 @@ REQUEST HB_LANG_PT                  /*  Este comando instrui o compilador a carr
 
 procedure Main
 
+          local logotipo := ''
           // Definição de variáveis Públicas (Globais)
 
           // Objetos Públicos (Globais)
-          public app := TAppData():New('1.1.1')  // Configurações iniciais
+          public app := TAppData():New('1.1.4')  // Configurações iniciais
 
           // Arrays Públicos
           // Booleans Públicos
@@ -107,8 +108,14 @@ procedure Main
                       BUTTON bttb_notificaoes CAPTION '0.000 Notificações' PICTURE 'bttNotificationsGray' TOOLTIP 'Clique aqui para ler e enviar recados' AUTOSIZE ACTION show_notifications()
                   END TOOLBAR
 
+                  if hb_FileExists('logotipo\logo_200x32.jpg')
+                    logotipo := 'logotipo\logo_200x32.jpg'
+                  elseif hb_FileExists('logotipo\logo_200x32.png')
+                    logotipo := 'logotipo\logo_200x32.png'
+                  endif
+
                   DEFINE TOOLBAR TooBar_4 BUTTONSIZE 200,40 IMAGESIZE 200,32 FONT 'Open Sans' SIZE 8 FLAT
-                      BUTTON bttb_empresas CAPTION 'EMPRESAS...' PICTURE 'bttCompanies' TOOLTIP 'Clique aqui para trocar empresa' AUTOSIZE ACTION change_company()
+                      BUTTON bttb_empresas CAPTION 'EMPRESAS...' PICTURE logotipo TOOLTIP 'Clique aqui para trocar empresa' AUTOSIZE ACTION change_company()
                   END TOOLBAR
 
                   DEFINE TOOLBAR TooBar_5 BUTTONSIZE 60,40 IMAGESIZE 60,32 FONT 'Open Sans' SIZE 8 FLAT
@@ -121,12 +128,19 @@ procedure Main
 
               END SPLITBOX
 
+              logotipo := ''
+              if hb_FileExists('logotipo\logo_principal.jpg')
+                logotipo := 'logotipo\logo_principal.jpg'
+              elseif hb_FileExists('logotipo\logo_principal.png')
+                logotipo := 'logotipo\logo_principal.png'
+              endif
+
               DEFINE IMAGE Image_1
                   ROW    75
                   COL    253
                   WIDTH  630
                   HEIGHT 550
-                  PICTURE 'imgLogoPrincipal'
+                  PICTURE logotipo
                   VISIBLE true
                   STRETCH false
                   BACKGROUNDCOLOR {255,255,255}

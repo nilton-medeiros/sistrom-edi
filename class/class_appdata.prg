@@ -137,10 +137,6 @@ method appRegistry() class TAppData
       if RegistryRead(::pathRegistry + "Monitoring\Don'tRun") == NIL
          RegistryWrite(::pathRegistry + "Monitoring\Don'tRun", 0)
       endif
-      // Remover as linhas abaixo após versão 1.0.9
-      if RegistryRead(::pathRegistry + "Registered") == NIL
-         RegistryWrite(::pathRegistry + "Registered", 'LW LOGÍSTICA')
-      endif
 
       if ::isRunning()
          saveLog('O sistema nao foi desligado corretamente da ultima vez')

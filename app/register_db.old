@@ -11,20 +11,24 @@
 
 procedure register_db_buttonSaveAction()
           local userConnect
+          local ip_array := GetProperty('register_db', 'ip_address_host', 'Value')
 
-          if ! Empty(GetProperty('register_db', 'text_address_host', 'Value')) .and. ;
-             ! Empty(GetProperty('register_db', 'text_database',   'Value')) .and.;
-             ! Empty(GetProperty('register_db', 'text_user', 'Value')) .and.;
-             ! Empty(GetProperty('register_db', 'text_password', 'Value'))
+          if ! (ip_array[1] == 0) .and. ! Empty(GetProperty('register_db', 'text_database', 'Value')) .and.;
+                                        ! Empty(GetProperty('register_db', 'text_user', 'Value')) .and.;
+                                        ! Empty(GetProperty('register_db', 'text_password', 'Value'))
 
              userConnect := {;
-                'address' => AllTrim(GetProperty('register_db', 'text_address_host', 'Value')),;
+                'address' => IPArrayToString(ip_array),;
                 'userName' => AllTrim(GetProperty('register_db', 'text_user', 'Value')),;
                 'password' => AllTrim(GetProperty('register_db', 'text_password', 'Value'));
              }
 
-             MemVar->app:mysql := TMySQL():new(userConnect)
-             MemVar->app:setDB()
+             MemVar->app:mysql := TMySQL():new({;
+                'address' => IPArrayToString(ip_array),;
+                'userName' => AllTrim(GetProperty('register_db', 'text_user', 'Value')),;
+                'password' => AllTrim(GetProperty('register_db', 'text_password', 'Value'));
+             })
+          MemVar->app:setDB()
 
               if MemVar->app:mysql:connect()
                   doMethod('register_db', 'RELEASE')
@@ -37,6 +41,13 @@ procedure register_db_buttonSaveAction()
           end
 
 return
+
+function IPArrayToString(ip_array)
+            local ip_string := LTrim(Str(ip_array[1]))
+            ip_string += '.' + LTrim(Str(ip_array[2]))
+            ip_string += '.' + LTrim(Str(ip_array[3]))
+            ip_string += '.' + LTrim(Str(ip_array[4]))
+return (ip_string)
 
 procedure register_db_Escape()
     doMethod('register_db', 'RELEASE')

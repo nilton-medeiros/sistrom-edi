@@ -1,5 +1,5 @@
 1 VERSIONINFO
-  FILEVERSION 1,1,10
+  FILEVERSION 1,1,40
  {
     BLOCK "StringFileInfo"
     {
@@ -10,7 +10,7 @@
             VALUE "LegalCopyright"   , "Copyright (c) Sistrom Web"
             VALUE "OriginalFilename" , "SistromEDI.exe"
             VALUE "ProductName"      , "Sistrom EDI"
-            VALUE "ProductVersion"   , "1.1.10.Hb.MS"
+            VALUE "ProductVersion"   , "1.1.40.Hb.MS"
         }
     }
     BLOCK "VarFileInfo"
@@ -42,7 +42,6 @@ bttNotificationsBlue PNG resources\recado_90x32-blue.png
 bttNotificationsPink PNG resources\recado_90x32-pink.png
 bttNotificationsGray PNG resources\recado_90x32-gray.png
 bttNotificationsRed PNG resources\recado_90x32-red.png
-bttCompanies PNG resources\logotipo_empresa-200x32.png
 bttMan PNG resources\man_60x32.png
 bttWoman PNG resources\woman_60x32.png
 bttTurnOffBlue PNG resources\turn_off_60x24-blue.png
@@ -80,7 +79,6 @@ bttSpyPswGray PNG resources\eye_transp_24-gray.png
 bttSpyPswPink PNG resources\eye_transp_24-pink.png
 bttExcel PNG resources\microsoft-excel-2019-28.png
 // Imagens Forms
-imgLogoPrincipal JPG resources\logo_principal.jpg
 imgLogin PNG resources\login_64.png
 imgUser PNG resources\user_28.png
 imgLock PNG resources\closed_padlock_28.png
