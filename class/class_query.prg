@@ -216,7 +216,7 @@ method getField(field, format_command) class TSQLQuery
             saveLog('Campo <' + field + '> inexistente! SQL-> ' + ::query:cQuery)
             return NIL
           endif
-        elseif ValType(field) == 'N' .and. Empty(::query:FieldName(field))
+       elseif ValType(field) == 'N' .and. Empty(::query:FieldName(field))
             saveLog('Campo <' + hb_NToS(field) + '> inexistente! SQL-> ' + ::query:cQuery)
             msg_debug_info({'Campo inexistente: ', hb_NToS(field), hb_eol(), 'Avise o suporte!'})
             return NIL
